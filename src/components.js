@@ -262,38 +262,235 @@ function initTestimonials() {
   // Testimonials are rendered in a clean, responsive CSS grid
 }
 
-/* ── Video Modal ─────────────────── */
+/* ── Interactive Media Showcase Modal (All 35 Google Drive Contents) ── */
 function initVideoModal() {
-  const modal   = document.querySelector('.video-modal');
-  const modalVid = modal?.querySelector('video');
-  const closeBtn = modal?.querySelector('.video-modal-close');
+  const modal       = document.getElementById('media-showcase-modal') || document.querySelector('.video-modal');
+  const modalVid    = document.getElementById('showcase-video') || modal?.querySelector('video');
+  const modalImg    = document.getElementById('showcase-image');
+  const titleEl     = document.getElementById('showcase-current-title');
+  const counterEl   = document.getElementById('showcase-counter');
+  const thumbsWrap  = document.getElementById('showcase-thumbs');
+  const tabsWrap    = document.getElementById('showcase-tabs');
+  const prevBtn     = document.getElementById('showcase-prev');
+  const nextBtn     = document.getElementById('showcase-next');
+  const closeBtn    = modal?.querySelector('.video-modal-close');
 
   if (!modal) return;
 
+  // Complete catalog of all 20 Videos + 15 Photos from the client's Google Drive
+  const DRIVE_CATALOG = [
+    // ── PASTA PRINCIPAL (Main) ──
+    { id: 'video-hero', type: 'video', cats: ['main'], title: 'Showreel StoryLens 01', src: '/assets/images/hero-video.mp4', thumb: '/assets/drive_media/hero-poster.webp' },
+    { id: 'main-02', type: 'video', cats: ['main'], title: 'Showreel StoryLens 02', src: '/assets/drive_media/main-storylens-02.mp4', thumb: '/assets/drive_media/main-storylens-02.webp' },
+    { id: 'main-03', type: 'video', cats: ['main'], title: 'Posicionamento Digital (Vídeo 03)', src: '/assets/drive_media/main-video-03.mp4', thumb: '/assets/drive_media/main-video-03.webp' },
+    { id: 'main-04', type: 'video', cats: ['main'], title: 'Conteúdo Corporativo (Vídeo 04)', src: '/assets/drive_media/main-video-04.mp4', thumb: '/assets/drive_media/main-video-04.webp' },
+    { id: 'main-05', type: 'video', cats: ['main'], title: 'Vídeo de Autoridade (Vídeo 05)', src: '/assets/drive_media/main-video-05.mp4', thumb: '/assets/drive_media/main-video-05.webp' },
+    { id: 'main-06', type: 'video', cats: ['main'], title: 'Storytelling de Marca (Vídeo 06)', src: '/assets/drive_media/main-video-06.mp4', thumb: '/assets/drive_media/main-video-06.webp' },
+    { id: 'main-07', type: 'video', cats: ['main'], title: 'Reels Estratégico (Vídeo 07)', src: '/assets/drive_media/main-video-07.mp4', thumb: '/assets/drive_media/main-video-07.webp' },
+    { id: 'main-09', type: 'video', cats: ['main'], title: 'Produção Audiovisual (Vídeo 09)', src: '/assets/drive_media/main-video-09.mp4', thumb: '/assets/drive_media/main-video-09.webp' },
+    { id: 'photo-main-1', type: 'photo', cats: ['main', 'fotos'], title: 'Produção de Vídeo em Estúdio', src: '/assets/drive_media/photos/foto-main-1.webp', thumb: '/assets/drive_media/photos/foto-main-1.webp' },
+    { id: 'photo-main-2', type: 'photo', cats: ['main', 'fotos'], title: 'Sessão Fotográfica Profissional', src: '/assets/drive_media/photos/foto-main-2.webp', thumb: '/assets/drive_media/photos/foto-main-2.webp' },
+    { id: 'photo-prod-bastidor', type: 'photo', cats: ['main', 'fotos', 'eventos'], title: 'Aprovação de Ensaio em Tempo Real', src: '/assets/drive_media/photos/foto_prod_bastidor.webp', thumb: '/assets/drive_media/photos/foto_prod_bastidor.webp' },
+
+    // ── PASTA ABA NOVA: ENSAIO & ROTEIRO EXTERNO ──
+    { id: 'video-methodology', type: 'video', cats: ['ensaio'], title: 'Roteiro Externo Guiado (Destaque)', src: '/assets/images/methodology-video.mp4', thumb: '/assets/drive_media/methodology-poster.webp' },
+    { id: 'ensaio-01', type: 'video', cats: ['ensaio'], title: 'Roteiro Externo 01', src: '/assets/drive_media/ensaio-roteiro-01.mp4', thumb: '/assets/drive_media/ensaio-roteiro-01.webp' },
+    { id: 'ensaio-bastidores', type: 'video', cats: ['ensaio'], title: 'Bastidores do Ensaio', src: '/assets/drive_media/ensaio-bastidores.mp4', thumb: '/assets/drive_media/ensaio-bastidores.webp' },
+    { id: 'ensaio-externo', type: 'video', cats: ['ensaio'], title: 'Captação em Locação Externa', src: '/assets/drive_media/ensaio-externo.mp4', thumb: '/assets/drive_media/ensaio-externo.webp' },
+    { id: 'ensaio-makingof', type: 'video', cats: ['ensaio'], title: 'Direção de Pose & Making Of', src: '/assets/drive_media/ensaio-makingof.mp4', thumb: '/assets/drive_media/ensaio-makingof.webp' },
+    { id: 'photo-roteiro', type: 'photo', cats: ['ensaio', 'fotos'], title: 'Ensaio & Roteiro Externo', src: '/assets/drive_media/photos/roteiro-foto.webp', thumb: '/assets/drive_media/photos/roteiro-foto.webp' },
+    { id: 'photo-ensaio-prod', type: 'photo', cats: ['ensaio', 'fotos', 'eventos'], title: 'Direção de Imagem em Estúdio', src: '/assets/drive_media/photos/foto-ensaio-prod.webp', thumb: '/assets/drive_media/photos/foto-ensaio-prod.webp' },
+
+    // ── PASTA BASTIDORES & EVENTOS ──
+    { id: 'video-action', type: 'video', cats: ['eventos'], title: 'Cobertura de Evento em Tempo Real', src: '/assets/images/action-video.mp4', thumb: '/assets/drive_media/action-poster.webp' },
+    { id: 'bts-fast', type: 'video', cats: ['eventos'], title: 'Evento Fast Escova', src: '/assets/drive_media/bts-fast-escova.mp4', thumb: '/assets/drive_media/bts-fast-escova.webp' },
+    { id: 'bts-evento', type: 'video', cats: ['eventos'], title: 'Cobertura Corporativa StoryMaker', src: '/assets/drive_media/bts-evento.mp4', thumb: '/assets/drive_media/bts-evento.webp' },
+    { id: 'bts-producao', type: 'video', cats: ['eventos'], title: 'Making Of de Produção (IMG_3126)', src: '/assets/drive_media/bts-producao.mp4', thumb: '/assets/drive_media/bts-producao.webp' },
+    { id: 'bts-10', type: 'video', cats: ['eventos'], title: 'Bastidores & Direção (Vídeo 10)', src: '/assets/drive_media/bts-video-10.mp4', thumb: '/assets/drive_media/bts-video-10.webp' },
+    { id: 'bts-11', type: 'video', cats: ['eventos'], title: 'Ação de Marca & Evento (Vídeo 11)', src: '/assets/drive_media/bts-video-11.mp4', thumb: '/assets/drive_media/bts-video-11.webp' },
+    { id: 'bts-12', type: 'video', cats: ['eventos'], title: 'Set de Gravação (Vídeo 12)', src: '/assets/drive_media/bts-video-12.mp4', thumb: '/assets/drive_media/bts-video-12.webp' },
+    { id: 'photo-evento-5', type: 'photo', cats: ['eventos', 'fotos'], title: 'Ana — Cobertura de Evento StoryLens', src: '/assets/drive_media/photos/evento_5_.webp', thumb: '/assets/drive_media/photos/evento_5_.webp' },
+    { id: 'photo-ana-portrait', type: 'photo', cats: ['eventos', 'fotos'], title: 'Ana — Diretora Criativa & Filmmaker', src: '/assets/drive_media/photos/ana-drive-portrait.webp', thumb: '/assets/drive_media/photos/ana-drive-portrait.webp' },
+    { id: 'photo-andressa', type: 'photo', cats: ['fotos', 'eventos'], title: 'Retrato Corporativo — Andressa', src: '/assets/drive_media/photos/foto_andressa_.webp', thumb: '/assets/drive_media/photos/foto_andressa_.webp' },
+    { id: 'photo-gi', type: 'photo', cats: ['fotos', 'eventos'], title: 'Ensaio Fotográfico Corporativo — Gi', src: '/assets/drive_media/photos/foto_gi_.webp', thumb: '/assets/drive_media/photos/foto_gi_.webp' },
+    { id: 'photo-andreia', type: 'photo', cats: ['fotos', 'eventos'], title: 'Ensaio Corporativo — Andréia', src: '/assets/drive_media/photos/andre_ia_.webp', thumb: '/assets/drive_media/photos/andre_ia_.webp' },
+    { id: 'photo-evento-3', type: 'photo', cats: ['eventos', 'fotos'], title: 'Cobertura Bienal Internacional do Livro', src: '/assets/drive_media/photos/evento_3_.webp', thumb: '/assets/drive_media/photos/evento_3_.webp' },
+    { id: 'photo-evento-6', type: 'photo', cats: ['eventos', 'fotos'], title: 'Bastidores de Gravação em Evento', src: '/assets/drive_media/photos/evento-6.webp', thumb: '/assets/drive_media/photos/evento-6.webp' },
+    { id: 'photo-evento-11', type: 'photo', cats: ['eventos', 'fotos'], title: 'Captação de Palestra e Evento Corporativo', src: '/assets/drive_media/photos/evento-11.webp', thumb: '/assets/drive_media/photos/evento-11.webp' },
+    { id: 'photo-fast', type: 'photo', cats: ['eventos', 'fotos'], title: 'Cobertura Evento Fast Escova (Foto)', src: '/assets/drive_media/photos/foto-fast.webp', thumb: '/assets/drive_media/photos/foto-fast.webp' },
+    { id: 'photo-img-3071', type: 'photo', cats: ['eventos', 'fotos'], title: 'Equipamentos Profissionais & Iluminação', src: '/assets/drive_media/photos/img_3071.webp', thumb: '/assets/drive_media/photos/img_3071.webp' }
+  ];
+
+  let activeCategory = 'all';
+  let filteredItems = [...DRIVE_CATALOG];
+  let currentIndex = 0;
+
+  function getFiltered(cat) {
+    if (!cat || cat === 'all') return [...DRIVE_CATALOG];
+    return DRIVE_CATALOG.filter(item => item.cats.includes(cat));
+  }
+
+  function renderTabs() {
+    if (!tabsWrap) return;
+    tabsWrap.querySelectorAll('.showcase-tab').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.cat === activeCategory);
+    });
+  }
+
+  function renderThumbs() {
+    if (!thumbsWrap) return;
+    thumbsWrap.innerHTML = filteredItems.map((item, idx) => `
+      <button type="button" class="showcase-thumb ${idx === currentIndex ? 'active' : ''}" data-idx="${idx}">
+        <img src="${item.thumb}" alt="${item.title}" loading="lazy" />
+        <span class="showcase-thumb-badge ${item.type}">${item.type === 'video' ? '▶ Vídeo' : '📷 Foto'}</span>
+        <span class="showcase-thumb-title">${item.title}</span>
+      </button>
+    `).join('');
+
+    thumbsWrap.querySelectorAll('.showcase-thumb').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.dataset.idx, 10);
+        selectItem(idx);
+      });
+    });
+
+    // Scroll active thumb into view
+    const activeThumb = thumbsWrap.querySelector('.showcase-thumb.active');
+    activeThumb?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+  }
+
+  function selectItem(idx) {
+    if (!filteredItems.length) return;
+    currentIndex = (idx + filteredItems.length) % filteredItems.length;
+    const item = filteredItems[currentIndex];
+
+    if (titleEl) titleEl.textContent = item.title;
+    if (counterEl) counterEl.textContent = `${currentIndex + 1} / ${filteredItems.length}`;
+
+    if (item.type === 'video') {
+      if (modalImg) {
+        modalImg.style.display = 'none';
+        modalImg.src = '';
+      }
+      if (modalVid) {
+        modalVid.style.display = 'block';
+        modalVid.src = item.src;
+        modalVid.play().catch(() => {});
+      }
+    } else {
+      if (modalVid) {
+        modalVid.pause();
+        modalVid.src = '';
+        modalVid.style.display = 'none';
+      }
+      if (modalImg) {
+        modalImg.src = item.src;
+        modalImg.alt = item.title;
+        modalImg.style.display = 'block';
+      }
+    }
+
+    renderThumbs();
+  }
+
+  function openShowcase({ category = 'all', matchSrc = '', matchId = '' } = {}) {
+    activeCategory = category;
+    filteredItems = getFiltered(activeCategory);
+
+    let startIdx = 0;
+    if (matchId) {
+      const found = filteredItems.findIndex(i => i.id === matchId);
+      if (found >= 0) startIdx = found;
+    } else if (matchSrc) {
+      const cleanName = matchSrc.split('/').pop().replace(/-[A-Za-z0-9_-]{8}\.(webp|mp4|jpg|png)$/i, '.$1');
+      const found = filteredItems.findIndex(i =>
+        i.src.endsWith(cleanName) ||
+        i.thumb.endsWith(cleanName) ||
+        matchSrc.includes(i.id)
+      );
+      if (found >= 0) startIdx = found;
+    }
+
+    renderTabs();
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    selectItem(startIdx);
+  }
+
+  // 1. Video triggers ([data-video-modal])
   document.querySelectorAll('[data-video-modal]').forEach(trigger => {
     trigger.addEventListener('click', () => {
       const childVid = trigger.querySelector('video');
-      const src = childVid?.currentSrc || childVid?.getAttribute('src') || trigger.dataset.videoSrc;
-      if (src && modalVid) {
-        modalVid.src = src;
-        modalVid.play();
-      }
-      modal.classList.add('open');
-      document.body.style.overflow = 'hidden';
+      const rawSrc = trigger.dataset.videoSrc || childVid?.getAttribute('src') || childVid?.currentSrc || '';
+      let cat = 'all';
+      if (trigger.closest('#portfolio')) cat = 'main';
+      else if (trigger.closest('#ensaio-externo')) cat = 'ensaio';
+      else if (trigger.closest('#bts') || trigger.closest('#action')) cat = 'eventos';
+      openShowcase({ category: cat, matchSrc: rawSrc });
     });
+  });
+
+  // 2. Service Cards (#services .service-card) -> open category gallery on click!
+  document.querySelectorAll('#services .service-card').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      const cat = card.dataset.galleryCategory || 'all';
+      const startId = card.dataset.galleryStart || '';
+      openShowcase({ category: cat, matchId: startId });
+    });
+  });
+
+  // 3. BTS Carousel Photos & About Photo -> open photo in interactive lightbox with all Drive contents!
+  document.querySelectorAll('#bts .carousel-slide, #about .about-photo-wrap, .hero-video-frame').forEach(slide => {
+    slide.style.cursor = 'pointer';
+    slide.addEventListener('click', () => {
+      if (slide.classList.contains('hero-video-frame')) {
+        openShowcase({ category: 'main', matchId: 'video-hero' });
+        return;
+      }
+      const img = slide.querySelector('img');
+      const rawSrc = img?.getAttribute('src') || img?.currentSrc || '';
+      openShowcase({ category: 'all', matchSrc: rawSrc });
+    });
+  });
+
+  // Tab clicks
+  tabsWrap?.querySelectorAll('.showcase-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeCategory = btn.dataset.cat || 'all';
+      filteredItems = getFiltered(activeCategory);
+      renderTabs();
+      selectItem(0);
+    });
+  });
+
+  // Prev / Next buttons
+  prevBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    selectItem(currentIndex - 1);
+  });
+  nextBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    selectItem(currentIndex + 1);
   });
 
   function closeModal() {
     modal.classList.remove('open');
     document.body.style.overflow = '';
-    if (modalVid) { modalVid.pause(); modalVid.src = ''; }
+    if (modalVid) {
+      modalVid.pause();
+      modalVid.src = '';
+    }
   }
 
   closeBtn?.addEventListener('click', closeModal);
   modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
   document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('open')) return;
     if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowLeft') selectItem(currentIndex - 1);
+    if (e.key === 'ArrowRight') selectItem(currentIndex + 1);
   });
 }
 

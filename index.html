@@ -251,7 +251,7 @@
 
       <div class="services-grid">
         <!-- Card 1: Eventos -->
-        <div class="service-card reveal" data-delay="0">
+        <div class="service-card reveal" data-delay="0" data-gallery-category="eventos" data-gallery-start="video-action">
           <img
             class="service-card-img"
             src="/assets/images/evento-11.webp"
@@ -269,12 +269,15 @@
               Toda a alma do seu evento capturada por nossa equipe de StoryMakers.
               Produzimos conteúdo completo: recortes instantâneos, publicações e reels dinâmicos.
             </p>
-            <div class="service-card-arrow">→</div>
+            <div class="service-card-cta">
+              <span class="service-card-cta-label">Ver +19 vídeos e fotos</span>
+              <div class="service-card-arrow">→</div>
+            </div>
           </div>
         </div>
 
         <!-- Card 2: Fotografia Corporativa -->
-        <div class="service-card reveal" data-delay="100">
+        <div class="service-card reveal" data-delay="100" data-gallery-category="fotos" data-gallery-start="photo-andressa">
           <img
             class="service-card-img"
             src="/assets/drive_assets/bastidores/foto_andressa_.webp"
@@ -292,12 +295,15 @@
               Ensaios com olhar apurado, valorizando sua postura e autoridade.
               Iluminação, direção de pose individualizada e finalização impecável.
             </p>
-            <div class="service-card-arrow">→</div>
+            <div class="service-card-cta">
+              <span class="service-card-cta-label">Ver +15 fotos do ensaio</span>
+              <div class="service-card-arrow">→</div>
+            </div>
           </div>
         </div>
 
         <!-- Card 3: Roteiro & Produção Externa -->
-        <div class="service-card reveal" data-delay="200">
+        <div class="service-card reveal" data-delay="200" data-gallery-category="ensaio" data-gallery-start="video-methodology">
           <img
             class="service-card-img"
             src="/assets/drive_assets/aba_nova_ensaio_e_roteiro_externo/roteiro-foto.webp"
@@ -315,12 +321,15 @@
               Planejamento estratégico de ponta a ponta com foco no resultado.
               Posicionamento, branding e condução de cena sem complicação.
             </p>
-            <div class="service-card-arrow">→</div>
+            <div class="service-card-cta">
+              <span class="service-card-cta-label">Ver vídeos de roteiro externo</span>
+              <div class="service-card-arrow">→</div>
+            </div>
           </div>
         </div>
 
         <!-- Card 4: Ensaio Fotográfico -->
-        <div class="service-card reveal" data-delay="300">
+        <div class="service-card reveal" data-delay="300" data-gallery-category="main" data-gallery-start="video-hero">
           <img
             class="service-card-img"
             src="/assets/images/foto-main-1.webp"
@@ -338,7 +347,10 @@
               Produção personalizada para fortalecer sua presença digital.
               Direção de imagem completa para te deixar à vontade na frente das câmeras.
             </p>
-            <div class="service-card-arrow">→</div>
+            <div class="service-card-cta">
+              <span class="service-card-cta-label">Ver +11 vídeos e bastidores</span>
+              <div class="service-card-arrow">→</div>
+            </div>
           </div>
         </div>
       </div>
@@ -1254,11 +1266,48 @@
     </svg>
   </a>
 
-  <!-- Video Modal -->
-  <div class="video-modal">
-    <div class="video-modal-inner">
-      <button class="video-modal-close" aria-label="Fechar">✕</button>
-      <video controls controlsList="nodownload"></video>
+  <!-- Interactive Media Showcase & Video/Photo Modal -->
+  <div class="video-modal" id="media-showcase-modal" role="dialog" aria-modal="true" aria-label="Galeria de Conteúdos StoryLens">
+    <div class="showcase-modal-box">
+      <div class="showcase-modal-header">
+        <div class="showcase-modal-title-wrap">
+          <span class="showcase-modal-kicker">Acervo Oficial StoryLens</span>
+          <h3 class="showcase-modal-title" id="showcase-current-title">Portfólio &amp; Bastidores</h3>
+        </div>
+
+        <div class="showcase-tabs" id="showcase-tabs">
+          <button type="button" class="showcase-tab active" data-cat="all">Todos (35)</button>
+          <button type="button" class="showcase-tab" data-cat="main">Vídeos Estratégicos (11)</button>
+          <button type="button" class="showcase-tab" data-cat="ensaio">Ensaio &amp; Roteiro Externo (7)</button>
+          <button type="button" class="showcase-tab" data-cat="eventos">Eventos &amp; Bastidores (19)</button>
+          <button type="button" class="showcase-tab" data-cat="fotos">Fotografia (15)</button>
+        </div>
+
+        <button class="video-modal-close" aria-label="Fechar">✕</button>
+      </div>
+
+      <div class="showcase-modal-body">
+        <!-- Main Viewer (Video or High-Res Photo) -->
+        <div class="showcase-stage">
+          <button type="button" class="showcase-nav-btn prev" id="showcase-prev" aria-label="Conteúdo anterior">‹</button>
+
+          <div class="showcase-stage-media">
+            <video id="showcase-video" controls playsinline controlsList="nodownload"></video>
+            <img id="showcase-image" src="" alt="" style="display: none;" />
+          </div>
+
+          <button type="button" class="showcase-nav-btn next" id="showcase-next" aria-label="Próximo conteúdo">›</button>
+        </div>
+
+        <!-- Sidebar / Bottom Strip: More Contents from Google Drive -->
+        <div class="showcase-sidebar">
+          <div class="showcase-sidebar-header">
+            <span>Mais conteúdos desta pasta (clique para ver)</span>
+            <strong id="showcase-counter">1 / 35</strong>
+          </div>
+          <div class="showcase-thumbs-grid" id="showcase-thumbs"></div>
+        </div>
+      </div>
     </div>
   </div>
 
