@@ -1,0 +1,24 @@
+node_modules
+dist
+.DS_Store
+*.local
+
+# Temporary scrape/dump files
+drive_dump.html
+drive_inventory.json
+folder_*.html
+folder_*_data.txt
+script_*.txt
+check_dump.mjs
+download_drive_assets.mjs
+parse_strings.mjs
+scan_subfolders.mjs
+scratch_parse_drive.js
+
+# Unused raw formats & unreferenced heavy videos (>100MB GitHub limit)
+*.heic
+assets/videos/
+assets/drive_assets/**/*.mov
+!assets/drive_assets/main/vi_deo_storylens_01_.mov
+!assets/drive_assets/bastidores/cobertura_evento_.mov
+!assets/drive_assets/aba_nova_ensaio_e_roteiro_externo/roteiro_externo_.mov
