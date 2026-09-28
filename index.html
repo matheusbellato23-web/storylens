@@ -224,6 +224,11 @@
               preload="metadata"
             ></video>
 
+            <button type="button" class="inline-audio-toggle" data-inline-audio aria-label="Ativar ou desativar som do vídeo">
+              <span class="audio-icon">🔇</span>
+              <span class="audio-text">Ouvir com Áudio</span>
+            </button>
+
             <div class="hero-video-tag">
               <div class="hero-video-tag-dot"></div>
               <span class="hero-video-tag-text">StoryLens Produções</span>
@@ -357,81 +362,115 @@
     </section>
 
     <!-- ═══════════════════════════════ -->
-    <!-- PORTFOLIO VIDEOS (Drive Main)   -->
+    <!-- INTERACTIVE ICON HUB (PORTFOLIO)-->
     <!-- ═══════════════════════════════ -->
     <section id="portfolio" class="video-gallery-section">
       <div class="container">
         <div class="gallery-header reveal">
-          <div class="section-label">Portfólio Audiovisual</div>
-          <h2 class="section-title">Produções que <em>conectam</em><br />e geram autoridade</h2>
+          <div class="section-label">Navegue pelos Ícones de Produção</div>
+          <h2 class="section-title">Clique em um ícone para ver<br /><em>vídeos com áudio &amp; fotos</em></h2>
           <p class="gallery-subtitle">
-            Assista aos vídeos e reels estratégicos produzidos pela StoryLens para posicionar marcas e especialistas no digital.
+            Escolha uma categoria abaixo — cada ícone reúne os vídeos (com opção de ouvir com áudio direto na página) e as fotografias reais daquela produção.
           </p>
         </div>
 
-        <div class="reel-grid">
-          <div class="reel-card reveal" data-delay="0" data-video-modal data-video-src="/assets/images/hero-video.mp4">
-            <img src="/assets/images/hero-poster.webp" alt="StoryLens Showreel Institucional" loading="lazy" decoding="async" />
-            <div class="reel-card-overlay">
-              <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-              <span class="reel-card-tag">Showreel StoryLens 01</span>
+        <!-- Interactive Category Icons Requested by Client -->
+        <div class="hub-icons-grid reveal" id="hub-icons-bar" role="tablist" aria-label="Categorias de Produção">
+          <button type="button" class="hub-icon-card active" data-hub-cat="eventos" role="tab" aria-selected="true">
+            <div class="hub-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+              </svg>
             </div>
+            <div class="hub-icon-info">
+              <span class="hub-icon-title">Eventos</span>
+              <span class="hub-icon-meta">7 Vídeos + 7 Fotos</span>
+            </div>
+          </button>
+
+          <button type="button" class="hub-icon-card" data-hub-cat="roteiro" role="tab" aria-selected="false">
+            <div class="hub-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <div class="hub-icon-info">
+              <span class="hub-icon-title">Roteiro Guiado</span>
+              <span class="hub-icon-meta">6 Vídeos + 4 Fotos</span>
+            </div>
+          </button>
+
+          <button type="button" class="hub-icon-card" data-hub-cat="externo" role="tab" aria-selected="false">
+            <div class="hub-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="3.2"/>
+                <path d="M3 9a2 2 0 012-2h1.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0111.07 4h1.86a2 2 0 011.664.89l.812 1.22A2 2 0 0017.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+              </svg>
+            </div>
+            <div class="hub-icon-info">
+              <span class="hub-icon-title">Externo &amp; Ensaio</span>
+              <span class="hub-icon-meta">5 Vídeos + 6 Fotos</span>
+            </div>
+          </button>
+
+          <button type="button" class="hub-icon-card" data-hub-cat="fotografia" role="tab" aria-selected="false">
+            <div class="hub-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <path d="M21 15l-5-5L5 21"/>
+              </svg>
+            </div>
+            <div class="hub-icon-info">
+              <span class="hub-icon-title">Fotografia &amp; Retratos</span>
+              <span class="hub-icon-meta">15 Fotos + Making Of</span>
+            </div>
+          </button>
+
+          <button type="button" class="hub-icon-card" data-hub-cat="all" role="tab" aria-selected="false">
+            <div class="hub-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="3" width="7" height="7" rx="1"/>
+                <rect x="14" y="3" width="7" height="7" rx="1"/>
+                <rect x="14" y="14" width="7" height="7" rx="1"/>
+                <rect x="3" y="14" width="7" height="7" rx="1"/>
+              </svg>
+            </div>
+            <div class="hub-icon-info">
+              <span class="hub-icon-title">Acervo Completo</span>
+              <span class="hub-icon-meta">20 Vídeos + 15 Fotos</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Dynamic Active Category Panel (Videos + Photos Side-by-Side) -->
+        <div class="hub-active-panel" id="hub-active-panel">
+          <div class="hub-panel-header">
+            <div>
+              <span class="hub-panel-badge" id="hub-panel-badge">Categoria Selecionada</span>
+              <h3 class="hub-panel-title" id="hub-panel-title">Eventos Corporativos &amp; Cobertura em Tempo Real</h3>
+            </div>
+            <p class="hub-panel-desc" id="hub-panel-desc">
+              Clique em <strong>🔊 Ouvir com Áudio</strong> em qualquer vídeo para assistir com som direto na página, ou clique nas fotos para ampliar.
+            </p>
           </div>
 
-          <div class="reel-card reveal" data-delay="50" data-video-modal data-video-src="/assets/drive_media/main-storylens-02.mp4">
-            <img src="/assets/drive_media/main-storylens-02.webp" alt="StoryLens Institucional 02" loading="lazy" decoding="async" />
-            <div class="reel-card-overlay">
-              <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-              <span class="reel-card-tag">Showreel StoryLens 02</span>
+          <!-- Videos of Selected Icon -->
+          <div class="hub-subblock">
+            <div class="hub-subblock-label">
+              <span>🎬 Vídeos desta categoria (com áudio)</span>
+              <small id="hub-video-count"></small>
             </div>
+            <div class="reel-grid" id="hub-videos-grid"></div>
           </div>
 
-          <div class="reel-card reveal" data-delay="100" data-video-modal data-video-src="/assets/drive_media/main-video-03.mp4">
-            <img src="/assets/drive_media/main-video-03.webp" alt="StoryLens Produção Estratégica 03" loading="lazy" decoding="async" />
-            <div class="reel-card-overlay">
-              <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-              <span class="reel-card-tag">Posicionamento Digital</span>
+          <!-- Photos that converse with the Videos of Selected Icon -->
+          <div class="hub-subblock">
+            <div class="hub-subblock-label">
+              <span>📸 Fotografias &amp; Bastidores que conversam com esta produção</span>
+              <small id="hub-photo-count"></small>
             </div>
-          </div>
-
-          <div class="reel-card reveal" data-delay="150" data-video-modal data-video-src="/assets/drive_media/main-video-04.mp4">
-            <img src="/assets/drive_media/main-video-04.webp" alt="StoryLens Produção Estratégica 04" loading="lazy" decoding="async" />
-            <div class="reel-card-overlay">
-              <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-              <span class="reel-card-tag">Conteúdo Corporativo</span>
-            </div>
-          </div>
-
-          <div class="reel-card reveal" data-delay="200" data-video-modal data-video-src="/assets/drive_media/main-video-05.mp4">
-            <img src="/assets/drive_media/main-video-05.webp" alt="StoryLens Produção Estratégica 05" loading="lazy" decoding="async" />
-            <div class="reel-card-overlay">
-              <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-              <span class="reel-card-tag">Vídeo de Autoridade</span>
-            </div>
-          </div>
-
-          <div class="reel-card reveal" data-delay="250" data-video-modal data-video-src="/assets/drive_media/main-video-06.mp4">
-            <img src="/assets/drive_media/main-video-06.webp" alt="StoryLens Produção Estratégica 06" loading="lazy" decoding="async" />
-            <div class="reel-card-overlay">
-              <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-              <span class="reel-card-tag">Storytelling de Marca</span>
-            </div>
-          </div>
-
-          <div class="reel-card reveal" data-delay="300" data-video-modal data-video-src="/assets/drive_media/main-video-07.mp4">
-            <img src="/assets/drive_media/main-video-07.webp" alt="StoryLens Produção Estratégica 07" loading="lazy" decoding="async" />
-            <div class="reel-card-overlay">
-              <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-              <span class="reel-card-tag">Reels Estratégico</span>
-            </div>
-          </div>
-
-          <div class="reel-card reveal" data-delay="350" data-video-modal data-video-src="/assets/drive_media/main-video-09.mp4">
-            <img src="/assets/drive_media/main-video-09.webp" alt="StoryLens Produção Estratégica 09" loading="lazy" decoding="async" />
-            <div class="reel-card-overlay">
-              <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-              <span class="reel-card-tag">Produção Audiovisual</span>
-            </div>
+            <div class="hub-photos-grid" id="hub-photos-grid"></div>
           </div>
         </div>
       </div>
@@ -530,6 +569,10 @@
               playsinline
               preload="metadata"
             ></video>
+            <button type="button" class="inline-audio-toggle" data-inline-audio aria-label="Ativar ou desativar som do vídeo">
+              <span class="audio-icon">🔇</span>
+              <span class="audio-text">Ouvir com Áudio</span>
+            </button>
             <div class="action-video-play">
               <div class="play-btn">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -663,6 +706,10 @@
               playsinline
               preload="metadata"
             ></video>
+            <button type="button" class="inline-audio-toggle" data-inline-audio aria-label="Ativar ou desativar som do vídeo">
+              <span class="audio-icon">🔇</span>
+              <span class="audio-text">Ouvir com Áudio</span>
+            </button>
             <div class="action-video-play">
               <div class="play-btn">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="var(--accent)">
