@@ -297,7 +297,7 @@ function initVideoModal() {
   });
 }
 
-/* ── Contact Form (Web3Forms) ──────── */
+/* ── Contact Form (Hostinger SMTP /api/contact) ──────── */
 function initContactForm() {
   const form = document.getElementById('contact-form');
   if (!form) return;
@@ -307,35 +307,86 @@ function initContactForm() {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    submit.disabled = true;
-    submit.textContent = 'Enviando...';
 
-    const data = new FormData(form);
-    data.append('access_key', '28671378-bc57-427a-8261-217a652b583e');
-    data.append('subject', 'Novo contato via StoryLens');
-    data.append('from_name', 'StoryLens Website');
+    const formData = new FormData(form);
+    const payload = {
+      name: (formData.get('name') || '').toString().trim(),
+      email: (formData.get('email') || '').toString().trim(),
+      phone: (formData.get('phone') || '').toString().trim(),
+      service: (formData.get('service') || '').toString().trim(),
+      message: (formData.get('message') || '').toString().trim(),
+    };
 
-    try {
-      const res  = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: data
-      });
-      const json = await res.json();
-
-      if (json.success) {
-        form.reset();
-        success.style.display = 'block';
-        success.textContent = '✓ Mensagem enviada! Entraremos em contato em breve.';
-        setTimeout(() => { success.style.display = 'none'; }, 6000);
-      } else {
-        throw new Error('Fail');
-      }
-    } catch {
+    if (!payload.name || !payload.email || !payload.message) {
       success.style.display = 'block';
       success.style.background = '#fff0f0';
       success.style.borderColor = '#e00';
       success.style.color = '#c00';
-      success.textContent = 'Erro ao enviar. Por favor, tente pelo WhatsApp.';
+      success.textContent = 'Por favor, preencha seu Nome, E-mail e Mensagem.';
+      return;
+    }
+
+    submit.disabled = true;
+    submit.textContent = 'Enviando...';
+    success.style.display = 'none';
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const json = await res.json();
+
+      if (res.ok && json.ok) {
+        form.reset();
+        success.style.display = 'block';
+        success.style.background = '';
+        success.style.borderColor = '';
+        success.style.color = '';
+        success.textContent = '✓ Mensagem enviada com sucesso! Nossa equipe responderá em breve.';
+        setTimeout(() => { success.style.display = 'none'; }, 7000);
+        return;
+      }
+
+      // Fallback via FormSubmit if Hostinger SMTP password/relay needs confirmation in hPanel
+      const fallbackRes = await fetch('https://formsubmit.co/ajax/comercial@storylens.com.br', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          _subject: `Novo Orçamento no Site StoryLens: ${payload.name}`,
+          Nome: payload.name,
+          Email: payload.email,
+          WhatsApp: payload.phone || 'Não informado',
+          Servico: payload.service || 'Não especificado',
+          Mensagem: payload.message,
+        }),
+      });
+
+      if (fallbackRes.ok) {
+        form.reset();
+        success.style.display = 'block';
+        success.style.background = '';
+        success.style.borderColor = '';
+        success.style.color = '';
+        success.textContent = '✓ Mensagem recebida com sucesso! Entraremos em contato em breve.';
+        setTimeout(() => { success.style.display = 'none'; }, 7000);
+        return;
+      }
+
+      throw new Error(json.error || 'Falha no envio');
+    } catch {
+      const waText = encodeURIComponent(
+        `Olá! Vim pelo site da StoryLens.\n\n*Nome:* ${payload.name}\n*E-mail:* ${payload.email}\n*WhatsApp:* ${payload.phone || '-'}\n*Serviço:* ${payload.service || '-'}\n*Mensagem:* ${payload.message}`
+      );
+      success.style.display = 'block';
+      success.style.background = '#f0f9fb';
+      success.style.borderColor = '#0095B1';
+      success.style.color = '#0d1b22';
+      success.innerHTML = `Redirecionando seu atendimento... <a href="https://wa.me/5511961608299?text=${waText}" target="_blank" rel="noopener" style="color:#0095B1;font-weight:700;text-decoration:underline;">Clique aqui para concluir no WhatsApp →</a>`;
     } finally {
       submit.disabled = false;
       submit.textContent = 'Enviar Mensagem';
