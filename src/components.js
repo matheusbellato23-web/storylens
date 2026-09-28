@@ -303,15 +303,27 @@ function initVideoModal() {
     { id: 'foto-3', type: 'photo', cats: ['fotografia'], title: 'Retrato Executivo — Andréia', src: '/assets/drive_media/photos/andre_ia_.webp', thumb: '/assets/drive_media/photos/andre_ia_.webp' },
     { id: 'foto-4', type: 'video', cats: ['fotografia'], title: 'Sessão Fotográfica em Estúdio (Vídeo)', src: '/assets/drive_media/main-video-07.mp4', thumb: '/assets/drive_media/main-video-07.webp' },
 
-    // ── Mídias adicionais exclusivas das seções de destaque (Hero, Ação, Metodologia e Carrossel BTS) ──
-    { id: 'video-hero', type: 'video', cats: ['destaque'], title: 'Showreel Institucional StoryLens', src: '/assets/images/hero-video.mp4', thumb: '/assets/drive_media/hero-poster.webp' },
-    { id: 'video-action', type: 'video', cats: ['destaque'], title: 'StoryLens em Ação — Cobertura', src: '/assets/images/action-video.mp4', thumb: '/assets/drive_media/action-poster.webp' },
-    { id: 'video-methodology', type: 'video', cats: ['destaque'], title: 'Metodologia de Roteiro Guiado', src: '/assets/images/methodology-video.mp4', thumb: '/assets/drive_media/methodology-poster.webp' },
+    // ── 5. SEÇÃO ENSAIO & ROTEIRO EXTERNO (4 vídeos exclusivos da seção) ──
+    { id: 'sec-ens-1', type: 'video', cats: ['secao-ensaio'], title: 'Direção de Roteiro em Escritório', src: '/assets/drive_media/extra-take-site-2.mp4', thumb: '/assets/drive_media/extra-take-site-2.webp' },
+    { id: 'sec-ens-2', type: 'video', cats: ['secao-ensaio'], title: 'Preparação de Set & Iluminação Guiada', src: '/assets/drive_media/extra-copy-roteiro.mp4', thumb: '/assets/drive_media/extra-copy-roteiro.webp' },
+    { id: 'sec-ens-3', type: 'video', cats: ['secao-ensaio'], title: 'Gravação de Mesa Redonda & Conteúdo', src: '/assets/drive_media/main-video-09.mp4', thumb: '/assets/drive_media/main-video-09.webp' },
+    { id: 'sec-ens-4', type: 'video', cats: ['secao-ensaio'], title: 'Ensaio & Vídeo com Dupla Captação', src: '/assets/drive_media/extra-nem-sempre.mp4', thumb: '/assets/drive_media/extra-nem-sempre.webp' },
+
+    // ── 6. SEÇÃO BASTIDORES (4 vídeos exclusivos + 5 fotos exclusivas de Bastidores) ──
+    { id: 'bts-vid-1', type: 'video', cats: ['bts'], title: 'Direção & Monitoramento em Estúdio', src: '/assets/drive_media/bts-video-10.mp4', thumb: '/assets/drive_media/bts-video-10.webp' },
+    { id: 'bts-vid-2', type: 'video', cats: ['bts'], title: 'Iluminação Greika & Condução de Cena', src: '/assets/drive_media/bts-video-11.mp4', thumb: '/assets/drive_media/bts-video-11.webp' },
+    { id: 'bts-vid-3', type: 'video', cats: ['bts'], title: 'Captação de Beleza em Tempo Real', src: '/assets/drive_media/bts-video-12.mp4', thumb: '/assets/drive_media/bts-video-12.webp' },
+    { id: 'bts-vid-4', type: 'video', cats: ['bts'], title: 'Making Of — Estrutura de Estúdio', src: '/assets/drive_media/ensaio-makingof.mp4', thumb: '/assets/drive_media/ensaio-makingof.webp' },
     { id: 'bts-photo-1', type: 'photo', cats: ['bts'], title: 'Fotógrafa StoryLens em Estúdio', src: '/assets/drive_media/photos/foto-main-2.webp', thumb: '/assets/drive_media/photos/foto-main-2.webp' },
     { id: 'bts-photo-2', type: 'photo', cats: ['bts'], title: 'Cliente Feliz com Resultado do Ensaio', src: '/assets/drive_media/photos/foto_prod_bastidor.webp', thumb: '/assets/drive_media/photos/foto_prod_bastidor.webp' },
     { id: 'bts-photo-3', type: 'photo', cats: ['bts'], title: 'Cobertura Evento Abrafarma Future Trends', src: '/assets/drive_media/photos/img_3071.webp', thumb: '/assets/drive_media/photos/img_3071.webp' },
     { id: 'bts-photo-5', type: 'photo', cats: ['bts'], title: 'Cobertura Evento Mulheres na Íntegra', src: '/assets/drive_media/photos/evento-11.webp', thumb: '/assets/drive_media/photos/evento-11.webp' },
-    { id: 'bts-photo-6', type: 'photo', cats: ['bts'], title: 'Ana — Bastidores de Evento', src: '/assets/drive_media/photos/evento_5_.webp', thumb: '/assets/drive_media/photos/evento_5_.webp' }
+    { id: 'bts-photo-6', type: 'photo', cats: ['bts'], title: 'Ana — Bastidores de Evento', src: '/assets/drive_media/photos/evento_5_.webp', thumb: '/assets/drive_media/photos/evento_5_.webp' },
+
+    // ── Mídias adicionais exclusivas das seções de destaque (Hero, Ação e Metodologia) ──
+    { id: 'video-hero', type: 'video', cats: ['destaque'], title: 'Showreel Institucional StoryLens', src: '/assets/images/hero-video.mp4', thumb: '/assets/drive_media/hero-poster.webp' },
+    { id: 'video-action', type: 'video', cats: ['destaque'], title: 'StoryLens em Ação — Cobertura', src: '/assets/images/action-video.mp4', thumb: '/assets/drive_media/action-poster.webp' },
+    { id: 'video-methodology', type: 'video', cats: ['destaque'], title: 'Metodologia de Roteiro Guiado', src: '/assets/images/methodology-video.mp4', thumb: '/assets/drive_media/methodology-poster.webp' }
   ];
 
   // Helper to mute all inline videos on the page except a specific one
@@ -332,7 +344,7 @@ function initVideoModal() {
     });
   }
 
-  // Bind inline audio buttons on Hero, Action, and Ensaio Externo videos
+  // Bind inline audio buttons on Hero, Action, and Ensaio Externo main videos
   document.querySelectorAll('[data-inline-audio]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -358,6 +370,38 @@ function initVideoModal() {
         if (icon) icon.textContent = '🔇';
         if (txt) txt.textContent = 'Ouvir com Áudio';
       }
+    });
+  });
+
+  // Bind inline audio and modal on static section sub-galleries (#ensaio-externo and #bts)
+  document.querySelectorAll('.reel-card[data-showcase-id]').forEach(card => {
+    const vid = card.querySelector('video');
+    const audioBtn = card.querySelector('[data-card-audio]');
+    const cat = card.dataset.showcaseCat || 'secao-ensaio';
+    const itemId = card.dataset.showcaseId || '';
+
+    audioBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (!vid) return;
+      if (vid.paused || vid.muted) {
+        muteOtherInlineVideos(vid);
+        vid.muted = false;
+        vid.play().catch(() => {});
+        card.classList.add('playing-inline');
+        audioBtn.classList.add('is-unmuted');
+        audioBtn.innerHTML = '<span class="audio-icon">⏸</span><span class="audio-text">Pausar Áudio</span>';
+      } else {
+        vid.pause();
+        vid.muted = true;
+        card.classList.remove('playing-inline');
+        audioBtn.classList.remove('is-unmuted');
+        audioBtn.innerHTML = '<span class="audio-icon">🔊</span><span class="audio-text">Ouvir com Áudio</span>';
+      }
+    });
+
+    card.addEventListener('click', () => {
+      if (vid) { vid.pause(); vid.muted = true; }
+      openShowcase({ category: cat, matchId: itemId });
     });
   });
 
