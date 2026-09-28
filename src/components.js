@@ -752,7 +752,7 @@ function initContactForm() {
       success.style.background = '#f0f9fb';
       success.style.borderColor = '#0095B1';
       success.style.color = '#0d1b22';
-      success.innerHTML = `Redirecionando seu atendimento... <a href="https://wa.me/5511961608299?text=${waText}" target="_blank" rel="noopener" style="color:#0095B1;font-weight:700;text-decoration:underline;">Clique aqui para concluir no WhatsApp →</a>`;
+      success.innerHTML = `Redirecionando seu atendimento... <a href="https://wa.me/5511995203024?text=${waText}" target="_blank" rel="noopener" style="color:#0095B1;font-weight:700;text-decoration:underline;">Clique aqui para concluir no WhatsApp →</a>`;
     } finally {
       submit.disabled = false;
       submit.textContent = 'Enviar Mensagem';
