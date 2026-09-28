@@ -267,7 +267,8 @@ function initVideoModal() {
 
   document.querySelectorAll('[data-video-modal]').forEach(trigger => {
     trigger.addEventListener('click', () => {
-      const src = trigger.dataset.videoSrc;
+      const childVid = trigger.querySelector('video');
+      const src = childVid?.currentSrc || childVid?.getAttribute('src') || trigger.dataset.videoSrc;
       if (src && modalVid) {
         modalVid.src = src;
         modalVid.play();
