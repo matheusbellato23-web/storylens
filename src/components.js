@@ -130,8 +130,13 @@ function initReveal() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const el = entry.target;
-        const delay = el.dataset.delay || 0;
-        setTimeout(() => el.classList.add('visible'), delay);
+        const delay = Number(el.dataset.delay || 0);
+        setTimeout(() => {
+          el.classList.add('visible');
+          setTimeout(() => {
+            el.style.willChange = 'auto';
+          }, 800);
+        }, delay);
         io.unobserve(el);
       }
     });
@@ -371,6 +376,39 @@ function initSmoothScroll() {
   });
 }
 
+/* ── Smart Viewport Video Playback ── */
+function initSmartVideos() {
+  const videos = document.querySelectorAll('#hero video, #action video, #methodology video');
+  if (!videos.length) return;
+
+  const timers = new WeakMap();
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const vid = entry.target;
+      const existingTimer = timers.get(vid);
+      if (existingTimer) {
+        clearTimeout(existingTimer);
+        timers.delete(vid);
+      }
+
+      if (entry.isIntersecting) {
+        // Wait for scroll reveal transition to finish so scroll stays 100% smooth
+        const isHero = vid.closest('#hero') !== null;
+        const delay = isHero ? 50 : 450;
+        const t = setTimeout(() => {
+          vid.play().catch(() => {});
+        }, delay);
+        timers.set(vid, t);
+      } else {
+        vid.pause();
+      }
+    });
+  }, { threshold: 0.25 });
+
+  videos.forEach(vid => io.observe(vid));
+}
+
 /* ── Init all ─────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initPreloader();
@@ -384,4 +422,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initParallax();
   initSmoothScroll();
+  initSmartVideos();
 });
