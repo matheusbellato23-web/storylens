@@ -2730,8 +2730,8 @@ section {
 
 .hub-icons-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 14px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
   margin-bottom: 36px;
 }
 
@@ -2977,10 +2977,10 @@ section {
 
 @media (max-width: 1080px) {
   .hub-icons-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .hub-photos-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -2988,9 +2988,6 @@ section {
   .hub-icons-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-  }
-  .hub-icon-card:last-child {
-    grid-column: 1 / -1;
   }
   .hub-icon-card {
     padding: 13px 14px;
