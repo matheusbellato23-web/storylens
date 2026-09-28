@@ -280,13 +280,13 @@ function initVideoModal() {
   // Curated catalog: 4 exclusive items per Icon (Zero duplicates across icons or sections!)
   const DRIVE_CATALOG = [
     // ── 1. ÍCONE EVENTOS (4 materiais exclusivos) ──
-    { id: 'ev-1', type: 'video', cats: ['eventos'], title: 'Evento Fast Escova (Vídeo)', src: '/assets/drive_media/bts-fast-escova.mp4', thumb: '/assets/drive_media/bts-fast-escova.webp' },
+    { id: 'ev-1', type: 'video', cats: ['eventos'], title: 'Evento Fast Escova (Vídeo)', src: '/assets/drive_media/bts-fast-escova.mp4', thumb: '/assets/drive_media/bts-fast-escova.webp?v=2' },
     { id: 'ev-2', type: 'video', cats: ['eventos'], title: 'Cobertura Corporativa Palco PanVel (Vídeo)', src: '/assets/drive_media/bts-producao.mp4', thumb: '/assets/drive_media/bts-producao.webp' },
     { id: 'ev-3', type: 'photo', cats: ['eventos'], title: 'Bienal Internacional do Livro SP', src: '/assets/drive_media/photos/evento_3_.webp', thumb: '/assets/drive_media/photos/evento_3_.webp' },
     { id: 'ev-4', type: 'photo', cats: ['eventos'], title: 'Inauguração & Decoração Corporativa', src: '/assets/drive_media/photos/foto-fast.webp', thumb: '/assets/drive_media/photos/foto-fast.webp' },
 
     // ── 2. ÍCONE ROTEIRO GUIADO (4 materiais exclusivos) ──
-    { id: 'rot-1', type: 'video', cats: ['roteiro'], title: 'Gravação com Teleprompter & Roteiro', src: '/assets/drive_media/main-video-05.mp4', thumb: '/assets/drive_media/main-video-05.webp' },
+    { id: 'rot-1', type: 'video', cats: ['roteiro'], title: 'Gravação com Teleprompter & Roteiro', src: '/assets/drive_media/main-video-05.mp4', thumb: '/assets/drive_media/main-video-05.webp?v=2' },
     { id: 'rot-2', type: 'video', cats: ['roteiro'], title: 'Posicionamento Digital em Dupla', src: '/assets/drive_media/main-video-03.mp4', thumb: '/assets/drive_media/main-video-03.webp' },
     { id: 'rot-3', type: 'video', cats: ['roteiro'], title: 'Conteúdo Corporativo & Autoridade', src: '/assets/drive_media/main-video-04.mp4', thumb: '/assets/drive_media/main-video-04.webp' },
     { id: 'rot-4', type: 'photo', cats: ['roteiro'], title: 'Set de Gravação com Roteiro Guiado', src: '/assets/drive_media/photos/foto-main-1.webp', thumb: '/assets/drive_media/photos/foto-main-1.webp' },
