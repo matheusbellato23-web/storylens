@@ -73,7 +73,7 @@ function initCursor() {
   }
   requestAnimationFrame(render);
 
-  const hoverTargets = document.querySelectorAll('a, button, [data-cursor], .service-card, .methodology-video-wrap, .action-video-wrap');
+  const hoverTargets = document.querySelectorAll('a, button, [data-cursor], .service-card, .methodology-video-wrap, .action-video-wrap, .reel-card');
   hoverTargets.forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursor.classList.add('hover-state');
@@ -429,7 +429,7 @@ function initSmoothScroll() {
 
 /* ── Smart Viewport Video Playback ── */
 function initSmartVideos() {
-  const videos = document.querySelectorAll('#hero video, #action video, #methodology video');
+  const videos = document.querySelectorAll('#hero video, #action video, #methodology video, #ensaio-externo video');
   if (!videos.length) return;
 
   const timers = new WeakMap();

@@ -1079,9 +1079,10 @@ section {
 .btn-text-link:hover { color: var(--accent); gap: 14px; }
 
 /* ========================================
-   METHODOLOGY / ROTEIRO GUIADO
+   METHODOLOGY / ROTEIRO GUIADO & ENSAIO EXTERNO
 ======================================== */
-#methodology {
+#methodology,
+#ensaio-externo {
   padding: var(--section-padding) 0;
   background: var(--bg-dark);
   color: white;
@@ -1094,9 +1095,12 @@ section {
   align-items: center;
 }
 
-#methodology .section-label { color: var(--accent); }
-#methodology .section-title { color: white; }
-#methodology .section-subtitle { color: rgba(255,255,255,0.65); }
+#methodology .section-label,
+#ensaio-externo .section-label { color: var(--accent); }
+#methodology .section-title,
+#ensaio-externo .section-title { color: white; }
+#methodology .section-subtitle,
+#ensaio-externo .section-subtitle { color: rgba(255,255,255,0.65); }
 
 .methodology-text-side { }
 
@@ -2104,3 +2108,210 @@ section {
   .nav-logo { height: 42px; }
   .google-sub { font-size: 11px; }
 }
+
+/* ========================================
+   VIDEO PORTFOLIO & REEL GALLERIES (DRIVE)
+======================================== */
+.video-gallery-section {
+  padding: var(--section-padding) 0;
+  background: var(--bg-dark);
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.gallery-header {
+  max-width: 720px;
+  margin-bottom: 56px;
+}
+
+.video-gallery-section .section-label {
+  color: var(--accent);
+}
+
+.video-gallery-section .section-title {
+  color: white;
+}
+
+.gallery-subtitle {
+  margin-top: 18px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.sub-gallery-header {
+  margin-top: 84px;
+  margin-bottom: 36px;
+  padding-top: 56px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sub-gallery-header-dark {
+  border-top: 1px solid rgba(15, 20, 19, 0.1);
+}
+
+.sub-gallery-title {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 3.2vw, 38px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: white;
+}
+
+.sub-gallery-header-dark .sub-gallery-title {
+  color: var(--text-primary);
+}
+
+.sub-gallery-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.reel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.reel-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.reel-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.reel-card {
+  position: relative;
+  aspect-ratio: 9 / 15.2;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #0f1413;
+  cursor: pointer;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.26);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease, border-color 0.35s ease;
+}
+
+.reel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+}
+
+.reel-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.18) 45%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: background 0.35s ease;
+}
+
+.reel-card .play-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease, color 0.35s ease;
+}
+
+.reel-card .play-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  margin-left: 2px;
+}
+
+.reel-card-tag {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.94);
+  background: rgba(15, 20, 19, 0.68);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  text-align: center;
+}
+
+.reel-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.38);
+}
+
+.reel-card:hover img {
+  transform: scale(1.06);
+}
+
+.reel-card:hover .play-btn {
+  transform: scale(1.12);
+  background: var(--accent);
+  color: white;
+}
+
+@media (max-width: 1024px) {
+  .reel-grid,
+  .reel-grid-3,
+  .reel-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sub-gallery-header {
+    margin-top: 52px;
+    padding-top: 36px;
+    margin-bottom: 24px;
+  }
+  .reel-grid,
+  .reel-grid-3,
+  .reel-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .reel-card {
+    aspect-ratio: 9 / 14.5;
+    border-radius: 14px;
+  }
+  .reel-card .play-btn {
+    width: 46px;
+    height: 46px;
+  }
+  .reel-card .play-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+  .reel-card-tag {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    font-size: 10.5px;
+    padding: 7px 8px;
+  }
+}
+
