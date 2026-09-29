@@ -277,50 +277,38 @@ function initVideoModal() {
 
   if (!modal) return;
 
-  // Curated catalog: 4 exclusive items per Icon (Zero duplicates across icons or sections!)
+  // Curated catalog: 3 to 4 exclusive items per Icon (Zero visual or scene duplicates across the entire site!)
   const DRIVE_CATALOG = [
-    // ── 1. ÍCONE EVENTOS (4 materiais exclusivos) ──
-    { id: 'ev-1', type: 'video', cats: ['eventos'], title: 'Evento Fast Escova (Vídeo)', src: '/assets/drive_media/bts-fast-escova.mp4', thumb: '/assets/drive_media/bts-fast-escova.webp?v=2' },
-    { id: 'ev-2', type: 'video', cats: ['eventos'], title: 'Cobertura Corporativa Palco PanVel (Vídeo)', src: '/assets/drive_media/bts-producao.mp4', thumb: '/assets/drive_media/bts-producao.webp' },
-    { id: 'ev-3', type: 'photo', cats: ['eventos'], title: 'Bienal Internacional do Livro SP', src: '/assets/drive_media/photos/evento_3_.webp', thumb: '/assets/drive_media/photos/evento_3_.webp' },
-    { id: 'ev-4', type: 'photo', cats: ['eventos'], title: 'Inauguração & Decoração Corporativa', src: '/assets/drive_media/photos/foto-fast.webp', thumb: '/assets/drive_media/photos/foto-fast.webp' },
+    // ── 1. ÍCONE EVENTOS (4 materiais de 4 eventos/clientes diferentes) ──
+    { id: 'ev-1', type: 'video', cats: ['eventos'], title: 'Inauguração Corporativa — Fast Escova', src: '/assets/drive_media/bts-fast-escova.mp4', thumb: '/assets/drive_media/bts-fast-escova.webp?v=4' },
+    { id: 'ev-2', type: 'video', cats: ['eventos'], title: 'Convenção Corporativa — Palco PanVel', src: '/assets/drive_media/bts-producao.mp4', thumb: '/assets/drive_media/bts-producao.webp' },
+    { id: 'ev-3', type: 'photo', cats: ['eventos'], title: 'Bienal Internacional do Livro SP — Literare Books', src: '/assets/drive_media/photos/evento_3_.webp', thumb: '/assets/drive_media/photos/evento_3_.webp' },
+    { id: 'ev-4', type: 'photo', cats: ['eventos'], title: 'Cobertura de Palestra — Mulheres na Íntegra', src: '/assets/drive_media/photos/evento-11.webp', thumb: '/assets/drive_media/photos/evento-11.webp' },
 
-    // ── 2. ÍCONE ROTEIRO GUIADO (4 materiais exclusivos) ──
-    { id: 'rot-1', type: 'video', cats: ['roteiro'], title: 'Gravação com Teleprompter & Roteiro', src: '/assets/drive_media/main-video-05.mp4', thumb: '/assets/drive_media/main-video-05.webp?v=2' },
-    { id: 'rot-2', type: 'video', cats: ['roteiro'], title: 'Posicionamento Digital em Dupla', src: '/assets/drive_media/main-video-03.mp4', thumb: '/assets/drive_media/main-video-03.webp' },
-    { id: 'rot-3', type: 'video', cats: ['roteiro'], title: 'Conteúdo Corporativo & Autoridade', src: '/assets/drive_media/main-video-04.mp4', thumb: '/assets/drive_media/main-video-04.webp' },
-    { id: 'rot-4', type: 'photo', cats: ['roteiro'], title: 'Set de Gravação com Roteiro Guiado', src: '/assets/drive_media/photos/foto-main-1.webp', thumb: '/assets/drive_media/photos/foto-main-1.webp' },
+    // ── 2. ÍCONE ROTEIRO GUIADO (3 materiais de 3 ambientes diferentes) ──
+    { id: 'rot-1', type: 'video', cats: ['roteiro'], title: 'Posicionamento Digital em Dupla', src: '/assets/drive_media/main-video-03.mp4', thumb: '/assets/drive_media/main-video-03.webp' },
+    { id: 'rot-2', type: 'video', cats: ['roteiro'], title: 'Direção de Roteiro & Autoridade Executiva', src: '/assets/drive_media/main-video-04.mp4', thumb: '/assets/drive_media/main-video-04.webp' },
+    { id: 'rot-3', type: 'photo', cats: ['roteiro'], title: 'Direção de Roteiro Guiado no iPad', src: '/assets/drive_media/photos/roteiro-foto.webp', thumb: '/assets/drive_media/photos/roteiro-foto.webp' },
 
-    // ── 3. ÍCONE EXTERNO & ENSAIO (4 materiais exclusivos) ──
-    { id: 'ext-1', type: 'video', cats: ['externo'], title: 'Roteiro & Ensaio em Loja (Vídeo)', src: '/assets/drive_media/ensaio-roteiro-01.mp4', thumb: '/assets/drive_media/ensaio-roteiro-01.webp' },
-    { id: 'ext-2', type: 'video', cats: ['externo'], title: 'Captação em Ambiente Corporativo', src: '/assets/drive_media/ensaio-externo.mp4', thumb: '/assets/drive_media/ensaio-externo.webp' },
-    { id: 'ext-3', type: 'video', cats: ['externo'], title: 'Bastidores do Ensaio Executivo', src: '/assets/drive_media/ensaio-bastidores.mp4', thumb: '/assets/drive_media/ensaio-bastidores.webp' },
-    { id: 'ext-4', type: 'photo', cats: ['externo'], title: 'Direção de Cena & Roteiro no iPad', src: '/assets/drive_media/photos/roteiro-foto.webp', thumb: '/assets/drive_media/photos/roteiro-foto.webp' },
+    // ── 3. ÍCONE EXTERNO & ENSAIO (3 vídeos exclusivos da pasta aba_nova_ensaio_e_roteiro_externo) ──
+    { id: 'ext-1', type: 'video', cats: ['externo'], title: 'Roteiro & Ensaio em Loja (DOT)', src: '/assets/drive_media/ensaio-roteiro-01.mp4', thumb: '/assets/drive_media/ensaio-roteiro-01.webp' },
+    { id: 'ext-2', type: 'video', cats: ['externo'], title: 'Captação Externa em Ambiente da Cliente', src: '/assets/drive_media/ensaio-externo.mp4', thumb: '/assets/drive_media/ensaio-externo.webp' },
+    { id: 'ext-3', type: 'video', cats: ['externo'], title: 'Bastidores do Ensaio Executivo Externo', src: '/assets/drive_media/ensaio-bastidores.mp4', thumb: '/assets/drive_media/ensaio-bastidores.webp' },
 
-    // ── 4. ÍCONE FOTOGRAFIA & RETRATOS (4 materiais exclusivos) ──
+    // ── 4. ÍCONE FOTOGRAFIA & RETRATOS (4 retratos fotográficos finalizados de 4 clientes diferentes) ──
     { id: 'foto-1', type: 'photo', cats: ['fotografia'], title: 'Retrato Corporativo — Dra. Andressa', src: '/assets/drive_media/photos/foto_andressa_.webp', thumb: '/assets/drive_media/photos/foto_andressa_.webp' },
     { id: 'foto-2', type: 'photo', cats: ['fotografia'], title: 'Ensaio Fotográfico — Gi', src: '/assets/drive_media/photos/foto_gi_.webp', thumb: '/assets/drive_media/photos/foto_gi_.webp' },
     { id: 'foto-3', type: 'photo', cats: ['fotografia'], title: 'Retrato Executivo — Andréia', src: '/assets/drive_media/photos/andre_ia_.webp', thumb: '/assets/drive_media/photos/andre_ia_.webp' },
-    { id: 'foto-4', type: 'video', cats: ['fotografia'], title: 'Sessão Fotográfica em Estúdio (Vídeo)', src: '/assets/drive_media/main-video-07.mp4', thumb: '/assets/drive_media/main-video-07.webp' },
+    { id: 'foto-4', type: 'photo', cats: ['fotografia'], title: 'Retrato Executivo — Posicionamento de Imagem', src: '/assets/drive_assets/bastidores/retrato-executivo-ana-cliente.webp', thumb: '/assets/drive_assets/bastidores/retrato-executivo-ana-cliente.webp' },
 
-    // ── 5. SEÇÃO ENSAIO & ROTEIRO EXTERNO (3 vídeos completos exclusivos da seção) ──
-    { id: 'sec-ens-1', type: 'video', cats: ['secao-ensaio'], title: 'Reunião de Alinhamento com o Cliente', src: '/assets/drive_media/main-video-09.mp4', thumb: '/assets/drive_media/main-video-09.webp' },
-    { id: 'sec-ens-2', type: 'video', cats: ['secao-ensaio'], title: 'Preparação de Set & Iluminação', src: '/assets/drive_media/extra-copy-roteiro.mp4', thumb: '/assets/drive_media/extra-copy-roteiro.webp' },
-    { id: 'sec-ens-3', type: 'video', cats: ['secao-ensaio'], title: 'Produção de Conteúdo em Estúdio', src: '/assets/drive_media/main-storylens-02.mp4', thumb: '/assets/drive_media/main-storylens-02.webp' },
-
-    // ── 6. SEÇÃO BASTIDORES (4 vídeos exclusivos + 4 fotos exclusivas de Bastidores) ──
-    { id: 'bts-vid-1', type: 'video', cats: ['bts'], title: 'Direção & Monitoramento em Estúdio', src: '/assets/drive_media/bts-video-10.mp4', thumb: '/assets/drive_media/bts-video-10.webp' },
-    { id: 'bts-vid-2', type: 'video', cats: ['bts'], title: 'Condução de Cena & Direção de Imagem', src: '/assets/drive_media/bts-video-11.mp4', thumb: '/assets/drive_media/bts-video-11.webp' },
-    { id: 'bts-vid-3', type: 'video', cats: ['bts'], title: 'Captação de Beleza em Tempo Real', src: '/assets/drive_media/bts-video-12.mp4', thumb: '/assets/drive_media/bts-video-12.webp' },
-    { id: 'bts-vid-4', type: 'video', cats: ['bts'], title: 'Making Of — Estrutura de Estúdio', src: '/assets/drive_media/ensaio-makingof.mp4', thumb: '/assets/drive_media/ensaio-makingof.webp' },
-    { id: 'bts-photo-2', type: 'photo', cats: ['bts'], title: 'Cliente Feliz com Resultado do Ensaio', src: '/assets/drive_media/photos/foto_prod_bastidor.webp', thumb: '/assets/drive_media/photos/foto_prod_bastidor.webp' },
-    { id: 'bts-photo-3', type: 'photo', cats: ['bts'], title: 'Cobertura Evento Abrafarma Future Trends', src: '/assets/drive_media/photos/img_3071.webp', thumb: '/assets/drive_media/photos/img_3071.webp' },
-    { id: 'bts-photo-5', type: 'photo', cats: ['bts'], title: 'Cobertura Evento Mulheres na Íntegra', src: '/assets/drive_media/photos/evento-11.webp', thumb: '/assets/drive_media/photos/evento-11.webp' },
-    { id: 'bts-photo-6', type: 'photo', cats: ['bts'], title: 'Ana — Bastidores de Evento', src: '/assets/drive_media/photos/evento_5_.webp', thumb: '/assets/drive_media/photos/evento_5_.webp' },
+    // ── 5. SEÇÃO BASTIDORES (3 fotos exclusivas de Bastidores) ──
+    { id: 'bts-1', type: 'photo', cats: ['bts'], title: 'Estúdio Móvel — Iluminação & Direção', src: '/assets/drive_media/photos/foto-main-1.webp', thumb: '/assets/drive_media/photos/foto-main-1.webp' },
+    { id: 'bts-2', type: 'photo', cats: ['bts'], title: 'Cobertura Corporativa — Abrafarma Future Trends', src: '/assets/drive_media/photos/img_3071.webp', thumb: '/assets/drive_media/photos/img_3071.webp' },
+    { id: 'bts-3', type: 'photo', cats: ['bts'], title: 'Ana — Captação em Tempo Real', src: '/assets/drive_media/photos/evento_5_.webp', thumb: '/assets/drive_media/photos/evento_5_.webp' },
 
     // ── Mídias adicionais exclusivas das seções de destaque (Hero, Ação e Metodologia) ──
     { id: 'video-hero', type: 'video', cats: ['destaque'], title: 'Showreel Institucional StoryLens', src: '/assets/images/hero-video.mp4', thumb: '/assets/drive_media/hero-poster.webp?v=3' },
-    { id: 'video-action', type: 'video', cats: ['destaque'], title: 'StoryLens em Ação — Direção em Estúdio', src: '/assets/drive_media/main-video-06.mp4', thumb: '/assets/drive_media/main-video-06.webp?v=3' },
+    { id: 'video-action', type: 'video', cats: ['destaque'], title: 'StoryLens em Ação — Produção de Conteúdo', src: '/assets/drive_media/main-storylens-02.mp4', thumb: '/assets/drive_media/main-storylens-02.webp?v=4' },
     { id: 'video-methodology', type: 'video', cats: ['destaque'], title: 'Metodologia de Roteiro Guiado', src: '/assets/images/methodology-video.mp4', thumb: '/assets/drive_media/methodology-poster.webp?v=3' }
   ];
 
@@ -365,39 +353,7 @@ function initVideoModal() {
     });
   });
 
-  // Bind inline audio and modal on static section sub-galleries (#ensaio-externo and #bts)
-  document.querySelectorAll('.reel-card[data-showcase-id]').forEach(card => {
-    const vid = card.querySelector('video');
-    const audioBtn = card.querySelector('[data-card-audio]');
-    const cat = card.dataset.showcaseCat || 'secao-ensaio';
-    const itemId = card.dataset.showcaseId || '';
-
-    audioBtn?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (!vid) return;
-      if (vid.paused || vid.muted) {
-        muteOtherInlineVideos(vid);
-        vid.muted = false;
-        vid.play().catch(() => {});
-        card.classList.add('playing-inline');
-        audioBtn.classList.add('is-unmuted');
-        audioBtn.innerHTML = '<span class="audio-text">Pausar Áudio</span>';
-      } else {
-        vid.pause();
-        vid.muted = true;
-        card.classList.remove('playing-inline');
-        audioBtn.classList.remove('is-unmuted');
-        audioBtn.innerHTML = '<span class="audio-text">Ouvir com Áudio</span>';
-      }
-    });
-
-    card.addEventListener('click', () => {
-      if (vid) { vid.pause(); vid.muted = true; }
-      openShowcase({ category: cat, matchId: itemId });
-    });
-  });
-
-  // ── Interactive Icon Hub (#portfolio): 4 Exclusive Items per Icon ──
+  // ── Interactive Icon Hub (#portfolio): 3 to 4 Exclusive Items per Icon ──
   const hubIconsBar = document.getElementById('hub-icons-bar');
   const hubMixedGrid = document.getElementById('hub-mixed-grid');
   const hubTitleEl = document.getElementById('hub-panel-title');
@@ -405,9 +361,9 @@ function initVideoModal() {
 
   const HUB_LABELS = {
     eventos: { badge: 'Categoria: Eventos (4 materiais)', title: 'Cobertura de Eventos em Tempo Real' },
-    roteiro: { badge: 'Categoria: Roteiro Guiado (4 materiais)', title: 'Roteiro Guiado & Direção de Cena com Áudio' },
-    externo: { badge: 'Categoria: Externo & Ensaio (4 materiais)', title: 'Produções Externas & Ensaios Estratégicos' },
-    fotografia: { badge: 'Categoria: Fotografia & Retratos (4 materiais)', title: 'Fotografia Corporativa, Retratos & Making Of' }
+    roteiro: { badge: 'Categoria: Roteiro Guiado (3 materiais)', title: 'Roteiro Guiado & Direção de Cena com Áudio' },
+    externo: { badge: 'Categoria: Externo & Ensaio (3 materiais)', title: 'Produções Externas & Ensaios Estratégicos' },
+    fotografia: { badge: 'Categoria: Fotografia & Retratos (4 retratos)', title: 'Fotografia Corporativa & Retratos Executivos' }
   };
 
   function renderIconHub(cat = 'eventos') {
@@ -425,8 +381,10 @@ function initVideoModal() {
     if (hubTitleEl) hubTitleEl.textContent = meta.title;
 
     const items = DRIVE_CATALOG.filter(i => i.cats.includes(cat));
+    hubMixedGrid.classList.toggle('reel-grid-3', items.length === 3);
+    hubMixedGrid.classList.toggle('reel-grid-4', items.length !== 3);
 
-    // Render all 4 exclusive items in a single clean 4-column row
+    // Render all exclusive items in a single clean row
     hubMixedGrid.innerHTML = items.map(item => {
       if (item.type === 'video') {
         return `
