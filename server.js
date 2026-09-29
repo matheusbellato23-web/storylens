@@ -68,7 +68,7 @@ export async function handleContactRequest(body) {
   const htmlContent = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e5e5e0; border-radius: 10px; overflow: hidden;">
       <div style="background: #0d1b22; color: #ffffff; padding: 24px 28px;">
-        <h2 style="margin: 0; font-size: 20px; color: #0095B1;">Novo Contato pelo Site — StoryLens</h2>
+        <h2 style="margin: 0; font-size: 20px; color: #0095B1;">Novo Contato pelo Site | StoryLens</h2>
         <p style="margin: 6px 0 0; font-size: 13px; color: rgba(255,255,255,0.7);">Recebido através do formulário de contato (storylens.com.br)</p>
       </div>
       <div style="padding: 28px; background: #fafaf8; color: #1a1a18;">
