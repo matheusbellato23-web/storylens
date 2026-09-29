@@ -303,18 +303,16 @@ function initVideoModal() {
     { id: 'foto-3', type: 'photo', cats: ['fotografia'], title: 'Retrato Executivo — Andréia', src: '/assets/drive_media/photos/andre_ia_.webp', thumb: '/assets/drive_media/photos/andre_ia_.webp' },
     { id: 'foto-4', type: 'video', cats: ['fotografia'], title: 'Sessão Fotográfica em Estúdio (Vídeo)', src: '/assets/drive_media/main-video-07.mp4', thumb: '/assets/drive_media/main-video-07.webp' },
 
-    // ── 5. SEÇÃO ENSAIO & ROTEIRO EXTERNO (4 vídeos exclusivos da seção) ──
-    { id: 'sec-ens-1', type: 'video', cats: ['secao-ensaio'], title: 'Direção de Roteiro em Escritório', src: '/assets/drive_media/extra-take-site-2.mp4', thumb: '/assets/drive_media/extra-take-site-2.webp' },
-    { id: 'sec-ens-2', type: 'video', cats: ['secao-ensaio'], title: 'Preparação de Set & Iluminação Guiada', src: '/assets/drive_media/extra-copy-roteiro.mp4', thumb: '/assets/drive_media/extra-copy-roteiro.webp' },
-    { id: 'sec-ens-3', type: 'video', cats: ['secao-ensaio'], title: 'Reunião de Alinhamento com o Cliente', src: '/assets/drive_media/main-video-09.mp4', thumb: '/assets/drive_media/main-video-09.webp' },
-    { id: 'sec-ens-4', type: 'video', cats: ['secao-ensaio'], title: 'Detalhes e Ambientação Corporativa', src: '/assets/drive_media/bts-evento.mp4', thumb: '/assets/drive_media/bts-evento.webp?v=3' },
+    // ── 5. SEÇÃO ENSAIO & ROTEIRO EXTERNO (3 vídeos completos exclusivos da seção) ──
+    { id: 'sec-ens-1', type: 'video', cats: ['secao-ensaio'], title: 'Reunião de Alinhamento com o Cliente', src: '/assets/drive_media/main-video-09.mp4', thumb: '/assets/drive_media/main-video-09.webp' },
+    { id: 'sec-ens-2', type: 'video', cats: ['secao-ensaio'], title: 'Preparação de Set & Iluminação', src: '/assets/drive_media/extra-copy-roteiro.mp4', thumb: '/assets/drive_media/extra-copy-roteiro.webp' },
+    { id: 'sec-ens-3', type: 'video', cats: ['secao-ensaio'], title: 'Produção de Conteúdo em Estúdio', src: '/assets/drive_media/main-storylens-02.mp4', thumb: '/assets/drive_media/main-storylens-02.webp' },
 
-    // ── 6. SEÇÃO BASTIDORES (4 vídeos exclusivos + 5 fotos exclusivas de Bastidores) ──
+    // ── 6. SEÇÃO BASTIDORES (4 vídeos exclusivos + 4 fotos exclusivas de Bastidores) ──
     { id: 'bts-vid-1', type: 'video', cats: ['bts'], title: 'Direção & Monitoramento em Estúdio', src: '/assets/drive_media/bts-video-10.mp4', thumb: '/assets/drive_media/bts-video-10.webp' },
-    { id: 'bts-vid-2', type: 'video', cats: ['bts'], title: 'Iluminação Greika & Condução de Cena', src: '/assets/drive_media/bts-video-11.mp4', thumb: '/assets/drive_media/bts-video-11.webp' },
+    { id: 'bts-vid-2', type: 'video', cats: ['bts'], title: 'Condução de Cena & Direção de Imagem', src: '/assets/drive_media/bts-video-11.mp4', thumb: '/assets/drive_media/bts-video-11.webp' },
     { id: 'bts-vid-3', type: 'video', cats: ['bts'], title: 'Captação de Beleza em Tempo Real', src: '/assets/drive_media/bts-video-12.mp4', thumb: '/assets/drive_media/bts-video-12.webp' },
     { id: 'bts-vid-4', type: 'video', cats: ['bts'], title: 'Making Of — Estrutura de Estúdio', src: '/assets/drive_media/ensaio-makingof.mp4', thumb: '/assets/drive_media/ensaio-makingof.webp' },
-    { id: 'bts-photo-1', type: 'photo', cats: ['bts'], title: 'Fotógrafa StoryLens em Estúdio', src: '/assets/drive_media/photos/foto-main-2.webp', thumb: '/assets/drive_media/photos/foto-main-2.webp' },
     { id: 'bts-photo-2', type: 'photo', cats: ['bts'], title: 'Cliente Feliz com Resultado do Ensaio', src: '/assets/drive_media/photos/foto_prod_bastidor.webp', thumb: '/assets/drive_media/photos/foto_prod_bastidor.webp' },
     { id: 'bts-photo-3', type: 'photo', cats: ['bts'], title: 'Cobertura Evento Abrafarma Future Trends', src: '/assets/drive_media/photos/img_3071.webp', thumb: '/assets/drive_media/photos/img_3071.webp' },
     { id: 'bts-photo-5', type: 'photo', cats: ['bts'], title: 'Cobertura Evento Mulheres na Íntegra', src: '/assets/drive_media/photos/evento-11.webp', thumb: '/assets/drive_media/photos/evento-11.webp' },
