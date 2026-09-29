@@ -306,8 +306,8 @@ function initVideoModal() {
     // ── 5. SEÇÃO ENSAIO & ROTEIRO EXTERNO (4 vídeos exclusivos da seção) ──
     { id: 'sec-ens-1', type: 'video', cats: ['secao-ensaio'], title: 'Direção de Roteiro em Escritório', src: '/assets/drive_media/extra-take-site-2.mp4', thumb: '/assets/drive_media/extra-take-site-2.webp' },
     { id: 'sec-ens-2', type: 'video', cats: ['secao-ensaio'], title: 'Preparação de Set & Iluminação Guiada', src: '/assets/drive_media/extra-copy-roteiro.mp4', thumb: '/assets/drive_media/extra-copy-roteiro.webp' },
-    { id: 'sec-ens-3', type: 'video', cats: ['secao-ensaio'], title: 'Gravação de Mesa Redonda & Conteúdo', src: '/assets/drive_media/main-video-09.mp4', thumb: '/assets/drive_media/main-video-09.webp' },
-    { id: 'sec-ens-4', type: 'video', cats: ['secao-ensaio'], title: 'Ensaio & Vídeo com Dupla Captação', src: '/assets/drive_media/extra-nem-sempre.mp4', thumb: '/assets/drive_media/extra-nem-sempre.webp' },
+    { id: 'sec-ens-3', type: 'video', cats: ['secao-ensaio'], title: 'Reunião de Alinhamento com o Cliente', src: '/assets/drive_media/main-video-09.mp4', thumb: '/assets/drive_media/main-video-09.webp' },
+    { id: 'sec-ens-4', type: 'video', cats: ['secao-ensaio'], title: 'Detalhes e Ambientação Corporativa', src: '/assets/drive_media/bts-evento.mp4', thumb: '/assets/drive_media/bts-evento.webp?v=3' },
 
     // ── 6. SEÇÃO BASTIDORES (4 vídeos exclusivos + 5 fotos exclusivas de Bastidores) ──
     { id: 'bts-vid-1', type: 'video', cats: ['bts'], title: 'Direção & Monitoramento em Estúdio', src: '/assets/drive_media/bts-video-10.mp4', thumb: '/assets/drive_media/bts-video-10.webp' },
@@ -321,9 +321,9 @@ function initVideoModal() {
     { id: 'bts-photo-6', type: 'photo', cats: ['bts'], title: 'Ana — Bastidores de Evento', src: '/assets/drive_media/photos/evento_5_.webp', thumb: '/assets/drive_media/photos/evento_5_.webp' },
 
     // ── Mídias adicionais exclusivas das seções de destaque (Hero, Ação e Metodologia) ──
-    { id: 'video-hero', type: 'video', cats: ['destaque'], title: 'Showreel Institucional StoryLens', src: '/assets/images/hero-video.mp4', thumb: '/assets/drive_media/hero-poster.webp' },
-    { id: 'video-action', type: 'video', cats: ['destaque'], title: 'StoryLens em Ação — Cobertura', src: '/assets/images/action-video.mp4', thumb: '/assets/drive_media/action-poster.webp' },
-    { id: 'video-methodology', type: 'video', cats: ['destaque'], title: 'Metodologia de Roteiro Guiado', src: '/assets/images/methodology-video.mp4', thumb: '/assets/drive_media/methodology-poster.webp' }
+    { id: 'video-hero', type: 'video', cats: ['destaque'], title: 'Showreel Institucional StoryLens', src: '/assets/images/hero-video.mp4', thumb: '/assets/drive_media/hero-poster.webp?v=3' },
+    { id: 'video-action', type: 'video', cats: ['destaque'], title: 'StoryLens em Ação — Direção em Estúdio', src: '/assets/drive_media/main-video-06.mp4', thumb: '/assets/drive_media/main-video-06.webp?v=3' },
+    { id: 'video-methodology', type: 'video', cats: ['destaque'], title: 'Metodologia de Roteiro Guiado', src: '/assets/images/methodology-video.mp4', thumb: '/assets/drive_media/methodology-poster.webp?v=3' }
   ];
 
   // Helper to mute all inline videos on the page except a specific one
@@ -335,9 +335,7 @@ function initVideoModal() {
         const btn = wrap?.querySelector('[data-inline-audio], .hub-audio-btn');
         if (btn) {
           btn.classList.remove('is-unmuted');
-          const icon = btn.querySelector('.audio-icon');
           const txt = btn.querySelector('.audio-text');
-          if (icon) icon.textContent = '🔇';
           if (txt) txt.textContent = 'Ouvir com Áudio';
         }
       }
@@ -358,16 +356,12 @@ function initVideoModal() {
         vid.muted = false;
         vid.play().catch(() => {});
         btn.classList.add('is-unmuted');
-        const icon = btn.querySelector('.audio-icon');
         const txt = btn.querySelector('.audio-text');
-        if (icon) icon.textContent = '🔊';
         if (txt) txt.textContent = 'Som Ligado';
       } else {
         vid.muted = true;
         btn.classList.remove('is-unmuted');
-        const icon = btn.querySelector('.audio-icon');
         const txt = btn.querySelector('.audio-text');
-        if (icon) icon.textContent = '🔇';
         if (txt) txt.textContent = 'Ouvir com Áudio';
       }
     });
@@ -389,13 +383,13 @@ function initVideoModal() {
         vid.play().catch(() => {});
         card.classList.add('playing-inline');
         audioBtn.classList.add('is-unmuted');
-        audioBtn.innerHTML = '<span class="audio-icon">⏸</span><span class="audio-text">Pausar Áudio</span>';
+        audioBtn.innerHTML = '<span class="audio-text">Pausar Áudio</span>';
       } else {
         vid.pause();
         vid.muted = true;
         card.classList.remove('playing-inline');
         audioBtn.classList.remove('is-unmuted');
-        audioBtn.innerHTML = '<span class="audio-icon">🔊</span><span class="audio-text">Ouvir com Áudio</span>';
+        audioBtn.innerHTML = '<span class="audio-text">Ouvir com Áudio</span>';
       }
     });
 
@@ -412,10 +406,10 @@ function initVideoModal() {
   const hubBadgeEl = document.getElementById('hub-panel-badge');
 
   const HUB_LABELS = {
-    eventos: { badge: 'Ícone: Eventos (4 materiais)', title: 'Cobertura de Eventos em Tempo Real' },
-    roteiro: { badge: 'Ícone: Roteiro Guiado (4 materiais)', title: 'Roteiro Guiado & Direção de Cena com Áudio' },
-    externo: { badge: 'Ícone: Externo & Ensaio (4 materiais)', title: 'Produções Externas & Ensaios Estratégicos' },
-    fotografia: { badge: 'Ícone: Fotografia & Retratos (4 materiais)', title: 'Fotografia Corporativa, Retratos & Making Of' }
+    eventos: { badge: 'Categoria: Eventos (4 materiais)', title: 'Cobertura de Eventos em Tempo Real' },
+    roteiro: { badge: 'Categoria: Roteiro Guiado (4 materiais)', title: 'Roteiro Guiado & Direção de Cena com Áudio' },
+    externo: { badge: 'Categoria: Externo & Ensaio (4 materiais)', title: 'Produções Externas & Ensaios Estratégicos' },
+    fotografia: { badge: 'Categoria: Fotografia & Retratos (4 materiais)', title: 'Fotografia Corporativa, Retratos & Making Of' }
   };
 
   function renderIconHub(cat = 'eventos') {
@@ -442,11 +436,10 @@ function initVideoModal() {
             <video src="${item.src}" poster="${item.thumb}" preload="none" loop playsinline muted></video>
             <div class="reel-card-overlay">
               <button type="button" class="hub-audio-btn" aria-label="Ouvir vídeo com áudio">
-                <span class="audio-icon">🔊</span>
                 <span class="audio-text">Ouvir com Áudio</span>
               </button>
-              <button type="button" class="hub-expand-btn" aria-label="Abrir em tela cheia">⛶ Tela Cheia</button>
-              <span class="reel-card-tag">🎬 ${item.title}</span>
+              <button type="button" class="hub-expand-btn" aria-label="Abrir em tela cheia">Tela Cheia</button>
+              <span class="reel-card-tag">${item.title}</span>
             </div>
           </div>
         `;
@@ -455,8 +448,8 @@ function initVideoModal() {
         <div class="reel-card hub-photo-item" data-item-id="${item.id}" data-item-cat="${cat}">
           <img src="${item.src}" alt="${item.title}" loading="lazy" decoding="async" />
           <div class="reel-card-overlay">
-            <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">🔍 Ampliar Foto</button>
-            <span class="reel-card-tag">📸 ${item.title}</span>
+            <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
+            <span class="reel-card-tag">${item.title}</span>
           </div>
         </div>
       `;
@@ -478,13 +471,13 @@ function initVideoModal() {
           vid.play().catch(() => {});
           card.classList.add('playing-inline');
           audioBtn.classList.add('is-unmuted');
-          audioBtn.innerHTML = '<span class="audio-icon">⏸</span><span class="audio-text">Pausar Áudio</span>';
+          audioBtn.innerHTML = '<span class="audio-text">Pausar Áudio</span>';
         } else {
           vid.pause();
           vid.muted = true;
           card.classList.remove('playing-inline');
           audioBtn.classList.remove('is-unmuted');
-          audioBtn.innerHTML = '<span class="audio-icon">🔊</span><span class="audio-text">Ouvir com Áudio</span>';
+          audioBtn.innerHTML = '<span class="audio-text">Ouvir com Áudio</span>';
         }
       });
 
@@ -526,7 +519,7 @@ function initVideoModal() {
     thumbsWrap.innerHTML = filteredItems.map((item, idx) => `
       <button type="button" class="showcase-thumb ${idx === currentIndex ? 'active' : ''}" data-idx="${idx}">
         <img src="${item.thumb}" alt="${item.title}" loading="lazy" />
-        <span class="showcase-thumb-badge ${item.type}">${item.type === 'video' ? '▶ Vídeo' : '📷 Foto'}</span>
+        <span class="showcase-thumb-badge ${item.type}">${item.type === 'video' ? 'Vídeo' : 'Foto'}</span>
         <span class="showcase-thumb-title">${item.title}</span>
       </button>
     `).join('');

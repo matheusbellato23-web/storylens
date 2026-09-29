@@ -2355,7 +2355,7 @@ section {
 }
 
 #bts .carousel-slide::after {
-  content: '🔍 Clique para ver mais conteúdos (+35)';
+  content: 'Clique para ampliar a foto';
   position: absolute;
   bottom: 14px;
   left: 14px;
