@@ -384,11 +384,11 @@ function initVideoModal() {
     hubMixedGrid.classList.toggle('reel-grid-3', items.length === 3);
     hubMixedGrid.classList.toggle('reel-grid-4', items.length !== 3);
 
-    // Render all exclusive items in a single clean row
-    hubMixedGrid.innerHTML = items.map(item => {
+    // Render all exclusive items in a single clean row with staggered motion index
+    hubMixedGrid.innerHTML = items.map((item, idx) => {
       if (item.type === 'video') {
         return `
-          <div class="reel-card hub-video-card" data-item-id="${item.id}" data-item-cat="${cat}">
+          <div class="reel-card hub-video-card" style="--card-idx: ${idx}" data-item-id="${item.id}" data-item-cat="${cat}">
             <video src="${item.src}" poster="${item.thumb}" preload="none" loop playsinline muted></video>
             <div class="reel-card-overlay">
               <button type="button" class="hub-audio-btn" aria-label="Ouvir vídeo com áudio">
@@ -401,7 +401,7 @@ function initVideoModal() {
         `;
       }
       return `
-        <div class="reel-card hub-photo-item" data-item-id="${item.id}" data-item-cat="${cat}">
+        <div class="reel-card hub-photo-item" style="--card-idx: ${idx}" data-item-id="${item.id}" data-item-cat="${cat}">
           <img src="${item.src}" alt="${item.title}" loading="lazy" decoding="async" />
           <div class="reel-card-overlay">
             <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
@@ -793,11 +793,113 @@ function initSmartVideos() {
   videos.forEach(vid => io.observe(vid));
 }
 
+/* ── Cinematic Motion Effects & Scroll Immersion ── */
+function initMotionEffects() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // 1. Top Scroll Progress Bar
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress-bar';
+  document.body.appendChild(progressBar);
+
+  // 2. Masked Word-by-Word Split Text on Section Titles & CTA Title
+  function wrapWordsInElement(el) {
+    if (el.dataset.motionSplit === 'true') return;
+    el.dataset.motionSplit = 'true';
+    let wordCounter = 0;
+
+    function processNode(node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const text = node.textContent;
+        if (!text || !text.trim()) return document.createTextNode(text);
+        const frag = document.createDocumentFragment();
+        const tokens = text.split(/(\s+)/);
+        tokens.forEach(token => {
+          if (!token) return;
+          if (/^\s+$/.test(token)) {
+            frag.appendChild(document.createTextNode(' '));
+          } else {
+            const mask = document.createElement('span');
+            mask.className = 'motion-word-mask';
+            const word = document.createElement('span');
+            word.className = 'motion-word';
+            word.style.setProperty('--word-idx', String(wordCounter++));
+            word.textContent = token;
+            mask.appendChild(word);
+            frag.appendChild(mask);
+          }
+        });
+        return frag;
+      }
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        if (node.tagName === 'BR') return node.cloneNode(false);
+        const clone = node.cloneNode(false);
+        Array.from(node.childNodes).forEach(child => {
+          clone.appendChild(processNode(child));
+        });
+        return clone;
+      }
+      return node.cloneNode(true);
+    }
+
+    const newChildren = Array.from(el.childNodes).map(processNode);
+    el.innerHTML = '';
+    newChildren.forEach(c => el.appendChild(c));
+    el.classList.add('motion-title-ready');
+  }
+
+  document.querySelectorAll('.section-title, .cta-title').forEach(wrapWordsInElement);
+
+  // 3. Scroll-Linked Depth Parallax & Progress Bar
+  const parallaxFrames = document.querySelectorAll('.action-video-wrap, .methodology-video-wrap, .about-photo-wrap');
+  let rafPending = false;
+
+  function updateScrollMotion() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const progress = Math.min(1, Math.max(0, scrollTop / maxScroll));
+    progressBar.style.setProperty('--scroll-progress', progress.toFixed(4));
+
+    const vh = window.innerHeight;
+    parallaxFrames.forEach(frame => {
+      const rect = frame.getBoundingClientRect();
+      if (rect.bottom > -100 && rect.top < vh + 100) {
+        const centerOffset = (rect.top + rect.height * 0.5 - vh * 0.5) / (vh * 0.5);
+        const shiftY = Math.max(-22, Math.min(22, centerOffset * -16));
+        frame.style.setProperty('--parallax-y', `${shiftY.toFixed(1)}px`);
+      }
+    });
+    rafPending = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!rafPending) {
+      rafPending = true;
+      requestAnimationFrame(updateScrollMotion);
+    }
+  }, { passive: true });
+  updateScrollMotion();
+
+  // 4. Interactive Spotlight & Subtle 3D Tilt on Cards (Desktop)
+  if (window.matchMedia('(pointer: fine)').matches) {
+    document.addEventListener('mousemove', (e) => {
+      const card = e.target.closest('.service-card, .reel-card');
+      if (!card) return;
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--spot-x', `${x.toFixed(0)}px`);
+      card.style.setProperty('--spot-y', `${y.toFixed(0)}px`);
+    }, { passive: true });
+  }
+}
+
 /* ── Init all ─────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initPreloader();
   initCursor();
   initNavbar();
+  initMotionEffects();
   initReveal();
   initCounters();
   initCarousel();

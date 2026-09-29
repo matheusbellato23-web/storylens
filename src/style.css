@@ -3013,5 +3013,216 @@ section {
   }
 }
 
+/* ============================================================
+   CINEMATIC MOTION EFFECTS & SCROLL IMMERSION
+============================================================ */
+
+/* 1. Top Scroll Progress Bar */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent) 0%, #38bdf8 50%, #00e1ff 100%);
+  transform-origin: 0% 50%;
+  transform: scaleX(var(--scroll-progress, 0));
+  z-index: 10002;
+  pointer-events: none;
+  box-shadow: 0 0 14px rgba(0, 149, 177, 0.65);
+  will-change: transform;
+}
+
+/* 2. Masked Word-by-Word Heading Reveal */
+.motion-word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+  margin-right: 0.24em;
+}
+
+.motion-word {
+  display: inline-block;
+  transform: translate3d(0, 115%, 0) rotate(3deg);
+  opacity: 0;
+  transition:
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.6s ease;
+  transition-delay: calc(var(--word-idx, 0) * 55ms + 60ms);
+  will-change: transform, opacity;
+}
+
+.section-title.visible .motion-word,
+.cta-title.visible .motion-word,
+.motion-title-ready.visible .motion-word {
+  transform: translate3d(0, 0, 0) rotate(0deg);
+  opacity: 1;
+}
+
+/* Subtle animated underline sweep on italicized <em> keywords inside titles */
+.section-title em,
+.hero-title em,
+.cta-title em {
+  position: relative;
+  display: inline-block;
+}
+
+.section-title em::after,
+.cta-title em::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), rgba(0, 149, 177, 0.15));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.45s;
+}
+
+.section-title.visible em::after,
+.cta-title.visible em::after {
+  transform: scaleX(1);
+}
+
+/* Section Label Eyebrow Slide & Line Expand */
+.section-label {
+  overflow: hidden;
+}
+
+.section-label.reveal,
+.section-label.reveal-left,
+.section-label.reveal-right {
+  transform: translate3d(-18px, 0, 0);
+  opacity: 0;
+  letter-spacing: 5px;
+  transition:
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.65s ease,
+    letter-spacing 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section-label.visible {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+  letter-spacing: 3px;
+}
+
+/* 3. Curtain Clip-Path & Scroll Depth Reveal on Video/Photo Frames */
+.action-video-wrap,
+.methodology-video-wrap,
+.about-photo-wrap {
+  clip-path: inset(7% 4% 7% 4% round 26px);
+  transition:
+    clip-path 1.05s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.75s ease,
+    box-shadow 0.5s ease;
+  will-change: clip-path, transform;
+}
+
+.action-video-wrap.visible,
+.methodology-video-wrap.visible,
+.about-photo-wrap.visible {
+  clip-path: inset(0% 0% 0% 0% round 20px);
+  transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1);
+}
+
+.about-photo-tag {
+  transform: translate3d(0, calc(var(--parallax-y, 0px) * -0.45), 0);
+  transition: transform 0.25s ease-out;
+}
+
+/* 4. Staggered 3D Cascade for Portfolio Hub Cards & Service Cards */
+@keyframes hubCardCascade {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 38px, 0) scale(0.94);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+#hub-mixed-grid .reel-card {
+  animation: hubCardCascade 0.68s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation-delay: calc(var(--card-idx, 0) * 95ms);
+}
+
+/* Interactive Spotlight & 3D Tilt on Cards */
+.service-card,
+.reel-card,
+.stat-card,
+.testimonial-card {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.service-card::after,
+.reel-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    420px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(0, 149, 177, 0.16),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 2;
+}
+
+.service-card:hover::after,
+.reel-card:hover::after {
+  opacity: 1;
+}
+
+/* Enhanced Method Steps & Check Items Stagger Slide */
+.method-step.reveal {
+  transform: translate3d(-24px, 16px, 0);
+  transition:
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.6s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.method-step.reveal.visible {
+  transform: translate3d(0, 0, 0);
+}
+
+.check-item.reveal-right {
+  transform: translate3d(28px, 0, 0);
+  transition:
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.55s ease;
+}
+
+.check-item.reveal-right.visible {
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-word,
+  .action-video-wrap,
+  .methodology-video-wrap,
+  .about-photo-wrap,
+  #hub-mixed-grid .reel-card {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+  }
+}
+
+
 
 
