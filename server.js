@@ -188,16 +188,25 @@ async function requestListener(req, res) {
     return;
   }
 
-  // Static file serving from dist/
+  // Static file serving with multi-tier fallback (dist -> public -> root)
   let safePath = path.normalize(decodeURIComponent(url.pathname)).replace(/^(\.\.[\/\\])+/, '');
   if (safePath === '/' || safePath === '\\') safePath = '/index.html';
+
   let filePath = path.join(DIST_DIR, safePath);
 
   if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
-    filePath = path.join(DIST_DIR, 'index.html');
+    const pubPath = path.join(__dirname, 'public', safePath);
+    const rootPath = path.join(__dirname, safePath);
+    if (fs.existsSync(pubPath) && !fs.statSync(pubPath).isDirectory()) {
+      filePath = pubPath;
+    } else if (fs.existsSync(rootPath) && !fs.statSync(rootPath).isDirectory()) {
+      filePath = rootPath;
+    } else if (!url.pathname.startsWith('/assets/')) {
+      filePath = path.join(DIST_DIR, 'index.html');
+    }
   }
 
-  if (!fs.existsSync(filePath)) {
+  if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
     res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
     res.end('Not found');
     return;

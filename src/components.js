@@ -301,19 +301,19 @@ function initVideoModal() {
     { id: 'foto-1', type: 'photo', cats: ['fotografia'], title: 'Retrato Corporativo: Dra. Andressa', src: '/assets/drive_media/photos/foto_andressa_.webp', thumb: '/assets/drive_media/photos/foto_andressa_.webp' },
     { id: 'foto-2', type: 'photo', cats: ['fotografia'], title: 'Ensaio Fotográfico: Gi', src: '/assets/drive_media/photos/foto_gi_.webp', thumb: '/assets/drive_media/photos/foto_gi_.webp' },
     { id: 'foto-3', type: 'photo', cats: ['fotografia'], title: 'Retrato Executivo: Andréia', src: '/assets/drive_media/photos/andre_ia_.webp', thumb: '/assets/drive_media/photos/andre_ia_.webp' },
-    { id: 'foto-4', type: 'photo', cats: ['fotografia'], title: 'Retrato Executivo e Posicionamento de Imagem', src: '/assets/drive_assets/bastidores/retrato-executivo-ana-cliente.webp', thumb: '/assets/drive_assets/bastidores/retrato-executivo-ana-cliente.webp' },
+    { id: 'foto-4', type: 'photo', cats: ['fotografia'], title: 'Retrato Executivo e Posicionamento de Imagem', src: '/assets/drive_media/photos/retrato-executivo-ana-cliente.webp', thumb: '/assets/drive_media/photos/retrato-executivo-ana-cliente.webp' },
 
     // 5. SEÇÃO BASTIDORES (4 vídeos de Making Of + 6 fotos de Bastidores)
     { id: 'bts-vid-3', type: 'video', cats: ['bts'], title: 'Captação de Beleza em Tempo Real', src: '/assets/drive_media/bts-video-12.mp4', thumb: '/assets/drive_media/bts-video-12.webp' },
     { id: 'bts-vid-4', type: 'video', cats: ['bts'], title: 'Making Of e Estrutura de Estúdio', src: '/assets/drive_media/ensaio-makingof.mp4', thumb: '/assets/drive_media/ensaio-makingof.webp' },
     { id: 'bts-vid-1', type: 'video', cats: ['bts'], title: 'Direção e Monitoramento em Estúdio', src: '/assets/drive_media/bts-video-10.mp4', thumb: '/assets/drive_media/bts-video-10.webp' },
     { id: 'bts-vid-2', type: 'video', cats: ['bts'], title: 'Condução de Cena e Direção de Imagem', src: '/assets/drive_media/bts-video-11.mp4', thumb: '/assets/drive_media/bts-video-11.webp' },
-    { id: 'bts-photo-1', type: 'photo', cats: ['bts'], title: 'Cliente Feliz com Resultado do Ensaio', src: '/assets/drive_assets/bastidores/foto_prod_bastidor.webp', thumb: '/assets/drive_assets/bastidores/foto_prod_bastidor.webp' },
-    { id: 'bts-photo-2', type: 'photo', cats: ['bts'], title: 'Cobertura Corporativa Abrafarma Future Trends', src: '/assets/drive_assets/bastidores/img_3071.webp', thumb: '/assets/drive_assets/bastidores/img_3071.webp' },
-    { id: 'bts-photo-3', type: 'photo', cats: ['bts'], title: 'Ana em Captação em Tempo Real', src: '/assets/drive_assets/bastidores/evento_5_.webp', thumb: '/assets/drive_assets/bastidores/evento_5_.webp' },
-    { id: 'bts-photo-4', type: 'photo', cats: ['bts'], title: 'Estúdio Móvel, Iluminação e Direção', src: '/assets/images/foto-main-1.webp', thumb: '/assets/images/foto-main-1.webp' },
+    { id: 'bts-photo-1', type: 'photo', cats: ['bts'], title: 'Cliente Feliz com Resultado do Ensaio', src: '/assets/drive_media/photos/foto_prod_bastidor.webp', thumb: '/assets/drive_media/photos/foto_prod_bastidor.webp' },
+    { id: 'bts-photo-2', type: 'photo', cats: ['bts'], title: 'Cobertura Corporativa Abrafarma Future Trends', src: '/assets/drive_media/photos/img_3071.webp', thumb: '/assets/drive_media/photos/img_3071.webp' },
+    { id: 'bts-photo-3', type: 'photo', cats: ['bts'], title: 'Ana em Captação em Tempo Real', src: '/assets/drive_media/photos/evento_5_.webp', thumb: '/assets/drive_media/photos/evento_5_.webp' },
+    { id: 'bts-photo-4', type: 'photo', cats: ['bts'], title: 'Estúdio Móvel, Iluminação e Direção', src: '/assets/drive_media/photos/foto-main-1.webp', thumb: '/assets/drive_media/photos/foto-main-1.webp' },
     { id: 'bts-photo-5', type: 'photo', cats: ['bts'], title: 'Câmera e Teleprompter em Estúdio', src: '/assets/drive_media/photos/foto-main-2.webp', thumb: '/assets/drive_media/photos/foto-main-2.webp' },
-    { id: 'bts-photo-6', type: 'photo', cats: ['bts'], title: 'Direção de Posicionamento em Estúdio', src: '/assets/drive_assets/bastidores/estudio-dupla-roteiro.webp', thumb: '/assets/drive_assets/bastidores/estudio-dupla-roteiro.webp' },
+    { id: 'bts-photo-6', type: 'photo', cats: ['bts'], title: 'Direção de Posicionamento em Estúdio', src: '/assets/drive_media/photos/estudio-dupla-roteiro.webp', thumb: '/assets/drive_media/photos/estudio-dupla-roteiro.webp' },
 
     // Mídias adicionais exclusivas das seções de destaque (Hero, Ação e Metodologia)
     { id: 'video-hero', type: 'video', cats: ['destaque'], title: 'Showreel Institucional StoryLens', src: '/assets/images/hero-video.mp4', thumb: '/assets/drive_media/hero-poster.webp?v=3' },
