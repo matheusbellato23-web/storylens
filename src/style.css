@@ -1,5 +1,5 @@
 /* ========================================
-   STORYLENS — Design System
+   STORYLENS - Design System
    Editorial Light | Teal Accent
 ======================================== */
 
@@ -315,7 +315,7 @@ ul { list-style: none; }
 }
 
 /* ========================================
-   HERO — Split Layout
+   HERO - Split Layout
 ======================================== */
 #hero {
   position: relative;
@@ -2120,8 +2120,44 @@ section {
 }
 
 .gallery-header {
-  max-width: 720px;
-  margin-bottom: 56px;
+  max-width: 780px;
+  margin-bottom: 28px;
+}
+
+.portfolio-filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.portfolio-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.portfolio-filter-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.portfolio-filter-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+  box-shadow: 0 4px 16px rgba(0, 149, 177, 0.4);
 }
 
 .video-gallery-section .section-label {
@@ -3045,20 +3081,32 @@ section {
 
 .motion-word {
   display: inline-block;
-  transform: translate3d(0, 115%, 0) rotate(3deg);
-  opacity: 0;
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
   transition:
-    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 0.6s ease;
-  transition-delay: calc(var(--word-idx, 0) * 55ms + 60ms);
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.5s ease;
+  transition-delay: calc(var(--word-idx, 0) * 45ms);
   will-change: transform, opacity;
+}
+
+.reveal:not(.visible) .motion-word,
+.reveal-left:not(.visible) .motion-word,
+.reveal-right:not(.visible) .motion-word {
+  transform: translate3d(0, 105%, 0) rotate(2deg);
+  opacity: 0;
 }
 
 .section-title.visible .motion-word,
 .cta-title.visible .motion-word,
-.motion-title-ready.visible .motion-word {
-  transform: translate3d(0, 0, 0) rotate(0deg);
-  opacity: 1;
+.gallery-header.visible .motion-word,
+.bts-header.visible .motion-word,
+.methodology-text-side.visible .motion-word,
+.action-text-side.visible .motion-word,
+.visible .motion-word,
+.motion-title-ready .motion-word {
+  transform: translate3d(0, 0, 0) rotate(0deg) !important;
+  opacity: 1 !important;
 }
 
 /* Subtle animated underline sweep on italicized <em> keywords inside titles */
