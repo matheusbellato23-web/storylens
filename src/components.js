@@ -270,6 +270,8 @@ function initVideoModal() {
   const modalImg    = document.getElementById('showcase-image');
   const titleEl     = document.getElementById('showcase-current-title');
   const counterEl   = document.getElementById('showcase-counter');
+  const catLabelEl  = document.getElementById('showcase-sidebar-cat-label');
+  const subfiltersWrap = document.getElementById('showcase-subfilters');
   const thumbsWrap  = document.getElementById('showcase-thumbs');
   const tabsWrap    = document.getElementById('showcase-tabs');
   const prevBtn     = document.getElementById('showcase-prev');
@@ -413,13 +415,33 @@ function initVideoModal() {
     });
   }
 
+  const CATEGORY_NAMES = {
+    portfolio: 'Portfólio StoryLens',
+    externo: 'Ensaio & Roteiro Externo',
+    bts: 'Bastidores & Eventos'
+  };
+
   let activeCategory = 'portfolio';
-  let filteredItems = DRIVE_CATALOG.filter(i => i.cats.includes('portfolio'));
+  let activeFilterType = 'all';
+  let filteredItems = [];
   let currentIndex = 0;
 
-  function getFiltered(cat) {
+  function getCategoryItems(cat) {
     const list = DRIVE_CATALOG.filter(item => item.cats.includes(cat));
     return list.length ? list : DRIVE_CATALOG.filter(item => item.cats.includes('portfolio'));
+  }
+
+  function updateFilteredItems() {
+    const baseList = getCategoryItems(activeCategory);
+    if (activeFilterType === 'all') {
+      filteredItems = baseList;
+    } else {
+      filteredItems = baseList.filter(item => item.type === activeFilterType);
+    }
+    if (!filteredItems.length) {
+      filteredItems = baseList;
+      activeFilterType = 'all';
+    }
   }
 
   function renderTabs() {
@@ -429,10 +451,38 @@ function initVideoModal() {
     });
   }
 
+  function renderSubfilters() {
+    if (!subfiltersWrap) return;
+    const baseList = getCategoryItems(activeCategory);
+    const totalCount = baseList.length;
+    const videoCount = baseList.filter(i => i.type === 'video').length;
+    const photoCount = baseList.filter(i => i.type === 'photo').length;
+
+    subfiltersWrap.innerHTML = `
+      <button type="button" class="showcase-subfilter-btn ${activeFilterType === 'all' ? 'active' : ''}" data-type="all">Todos (${totalCount})</button>
+      ${videoCount > 0 ? `<button type="button" class="showcase-subfilter-btn ${activeFilterType === 'video' ? 'active' : ''}" data-type="video">Vídeos (${videoCount})</button>` : ''}
+      ${photoCount > 0 ? `<button type="button" class="showcase-subfilter-btn ${activeFilterType === 'photo' ? 'active' : ''}" data-type="photo">Fotos (${photoCount})</button>` : ''}
+    `;
+
+    subfiltersWrap.querySelectorAll('.showcase-subfilter-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        activeFilterType = btn.dataset.type || 'all';
+        updateFilteredItems();
+        renderSubfilters();
+        selectItem(0);
+      });
+    });
+
+    if (catLabelEl) {
+      catLabelEl.textContent = CATEGORY_NAMES[activeCategory] || 'Conteúdos da Categoria';
+    }
+  }
+
   function renderThumbs() {
     if (!thumbsWrap) return;
     thumbsWrap.innerHTML = filteredItems.map((item, idx) => `
-      <button type="button" class="showcase-thumb ${idx === currentIndex ? 'active' : ''}" data-idx="${idx}">
+      <button type="button" class="showcase-thumb ${idx === currentIndex ? 'active' : ''}" data-idx="${idx}" aria-label="${item.title}">
         <img src="${item.thumb}" alt="${item.title}" loading="lazy" />
         <span class="showcase-thumb-badge ${item.type}">${item.type === 'video' ? 'Vídeo' : 'Foto'}</span>
         <span class="showcase-thumb-title">${item.title}</span>
@@ -487,7 +537,8 @@ function initVideoModal() {
   function openShowcase({ category = 'portfolio', matchSrc = '', matchId = '' } = {}) {
     muteOtherInlineVideos(null);
     activeCategory = category;
-    filteredItems = getFiltered(activeCategory);
+    activeFilterType = 'all';
+    updateFilteredItems();
 
     let startIdx = 0;
     if (matchId) {
@@ -504,6 +555,7 @@ function initVideoModal() {
     }
 
     renderTabs();
+    renderSubfilters();
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
     selectItem(startIdx);
@@ -553,9 +605,11 @@ function initVideoModal() {
   // Tab clicks
   tabsWrap?.querySelectorAll('.showcase-tab').forEach(btn => {
     btn.addEventListener('click', () => {
-      activeCategory = btn.dataset.cat || 'all';
-      filteredItems = getFiltered(activeCategory);
+      activeCategory = btn.dataset.cat || 'portfolio';
+      activeFilterType = 'all';
+      updateFilteredItems();
       renderTabs();
+      renderSubfilters();
       selectItem(0);
     });
   });
