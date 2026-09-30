@@ -375,19 +375,29 @@
           </p>
         </div>
 
-        <!-- Filter Pills for Main Portfolio (Mapped to the 4 Services) -->
-        <div class="portfolio-filters reveal" id="portfolio-filter-bar" role="tablist" aria-label="Filtro de Conteúdos por Categoria">
-          <button type="button" class="portfolio-filter-btn active" data-filter="all">Todas as Produções (30)</button>
-          <button type="button" class="portfolio-filter-btn" data-filter="eventos">Eventos em Tempo Real (8)</button>
-          <button type="button" class="portfolio-filter-btn" data-filter="fotografia">Fotografia Corporativa (7)</button>
-          <button type="button" class="portfolio-filter-btn" data-filter="roteiro">Roteiro Guiado &amp; Marketing (8)</button>
-          <button type="button" class="portfolio-filter-btn" data-filter="externo">Ensaio Externo (7)</button>
+        <!-- Filter Bar with Category and Format Subfilters -->
+        <div class="portfolio-filter-container reveal">
+          <!-- Row 1: Serviços -->
+          <div class="portfolio-filters" id="portfolio-filter-bar" role="tablist" aria-label="Filtro de Conteúdos por Categoria">
+            <button type="button" class="portfolio-filter-btn active" data-filter="all">Todas as Produções (27)</button>
+            <button type="button" class="portfolio-filter-btn" data-filter="eventos">Eventos em Tempo Real (6)</button>
+            <button type="button" class="portfolio-filter-btn" data-filter="fotografia">Fotografia Corporativa (6)</button>
+            <button type="button" class="portfolio-filter-btn" data-filter="roteiro">Roteiro Guiado &amp; Marketing (8)</button>
+            <button type="button" class="portfolio-filter-btn" data-filter="externo">Ensaio Externo (7)</button>
+          </div>
+
+          <!-- Row 2: Formato de Mídia (Vídeos / Fotos / Todos) -->
+          <div class="portfolio-type-filters" id="portfolio-type-bar" role="tablist" aria-label="Filtro por Formato de Mídia">
+            <button type="button" class="portfolio-type-btn active" data-type="all">Todos os Formatos</button>
+            <button type="button" class="portfolio-type-btn" data-type="video">🎬 Apenas Vídeos</button>
+            <button type="button" class="portfolio-type-btn" data-type="photo">📷 Apenas Fotos</button>
+          </div>
         </div>
 
-        <!-- Showcase Grid: Curated across the 4 Services without repetition -->
+        <!-- Showcase Grid: Zero Repetition across Categories and Format Types -->
         <div class="reel-grid reel-grid-3" id="portfolio-main-grid">
-          <!-- ── EVENTOS (8 materiais) ── -->
-          <div class="reel-card hub-video-card" data-portfolio-cat="eventos" data-showcase-cat="eventos" data-showcase-id="ev-fast-vid">
+          <!-- ── EVENTOS (6 materiais exclusivos) ── -->
+          <div class="reel-card hub-video-card" data-portfolio-cat="eventos" data-portfolio-type="video" data-showcase-cat="eventos" data-showcase-id="ev-fast-vid">
             <video src="/assets/drive_media/bts-fast-escova.mp4" poster="/assets/drive_media/bts-fast-escova.webp?v=4" preload="none" loop playsinline muted></video>
             <div class="reel-card-overlay">
               <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
@@ -398,15 +408,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-photo-item" data-portfolio-cat="eventos" data-showcase-cat="eventos" data-showcase-id="ev-fast-foto">
-            <img src="/assets/drive_media/photos/foto-fast.webp" alt="Inauguração Fast Escova com Equipe StoryLens" loading="lazy" decoding="async" />
-            <div class="reel-card-overlay">
-              <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
-              <span class="reel-card-tag">Cobertura Fast Escova</span>
-            </div>
-          </div>
-
-          <div class="reel-card hub-video-card" data-portfolio-cat="eventos" data-showcase-cat="eventos" data-showcase-id="ev-panvel">
+          <div class="reel-card hub-video-card" data-portfolio-cat="eventos" data-portfolio-type="video" data-showcase-cat="eventos" data-showcase-id="ev-panvel">
             <video src="/assets/drive_media/bts-producao.mp4" poster="/assets/drive_media/bts-producao.webp" preload="none" loop playsinline muted></video>
             <div class="reel-card-overlay">
               <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
@@ -417,7 +419,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-photo-item" data-portfolio-cat="eventos" data-showcase-cat="eventos" data-showcase-id="ev-abrafarma">
+          <div class="reel-card hub-photo-item" data-portfolio-cat="eventos" data-portfolio-type="photo" data-showcase-cat="eventos" data-showcase-id="ev-abrafarma">
             <img src="/assets/drive_media/photos/img_3071.webp" alt="Palco Corporativo Abrafarma Future Trends" loading="lazy" decoding="async" />
             <div class="reel-card-overlay">
               <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
@@ -425,7 +427,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-photo-item" data-portfolio-cat="eventos" data-showcase-cat="eventos" data-showcase-id="ev-bienal-3">
+          <div class="reel-card hub-photo-item" data-portfolio-cat="eventos" data-portfolio-type="photo" data-showcase-cat="eventos" data-showcase-id="ev-bienal-3">
             <img src="/assets/drive_media/photos/evento_3_.webp" alt="Bienal Internacional do Livro SP Literare Books" loading="lazy" decoding="async" />
             <div class="reel-card-overlay">
               <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
@@ -433,7 +435,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-photo-item" data-portfolio-cat="eventos" data-showcase-cat="eventos" data-showcase-id="ev-ana-evento">
+          <div class="reel-card hub-photo-item" data-portfolio-cat="eventos" data-portfolio-type="photo" data-showcase-cat="eventos" data-showcase-id="ev-ana-evento">
             <img src="/assets/drive_media/photos/evento_5_.webp" alt="Ana StoryLens em Cobertura Cultural" loading="lazy" decoding="async" />
             <div class="reel-card-overlay">
               <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
@@ -441,7 +443,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-photo-item" data-portfolio-cat="eventos" data-showcase-cat="eventos" data-showcase-id="ev-mulheres">
+          <div class="reel-card hub-photo-item" data-portfolio-cat="eventos" data-portfolio-type="photo" data-showcase-cat="eventos" data-showcase-id="ev-mulheres">
             <img src="/assets/drive_media/photos/evento-11.webp" alt="Cobertura de Palestra Mulheres na Íntegra" loading="lazy" decoding="async" />
             <div class="reel-card-overlay">
               <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
@@ -449,16 +451,8 @@
             </div>
           </div>
 
-          <div class="reel-card hub-photo-item" data-portfolio-cat="eventos" data-showcase-cat="eventos" data-showcase-id="ev-bienal-6">
-            <img src="/assets/drive_media/photos/evento-6.webp" alt="Bienal do Livro SP Espaço Autógrafos" loading="lazy" decoding="async" />
-            <div class="reel-card-overlay">
-              <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
-              <span class="reel-card-tag">Bienal do Livro SP Espaço Autógrafos</span>
-            </div>
-          </div>
-
-          <!-- ── FOTOGRAFIA PROFISSIONAL CORPORATIVA (7 materiais) ── -->
-          <div class="reel-card hub-photo-item" data-portfolio-cat="fotografia" data-showcase-cat="fotografia" data-showcase-id="foto-andressa">
+          <!-- ── FOTOGRAFIA PROFISSIONAL CORPORATIVA (6 materiais 100% foto) ── -->
+          <div class="reel-card hub-photo-item" data-portfolio-cat="fotografia" data-portfolio-type="photo" data-showcase-cat="fotografia" data-showcase-id="foto-andressa">
             <img src="/assets/drive_media/photos/foto_andressa_.webp" alt="Retrato Corporativo Dra. Andressa Sthanke" loading="lazy" decoding="async" />
             <div class="reel-card-overlay">
               <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
@@ -466,7 +460,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-photo-item" data-portfolio-cat="fotografia" data-showcase-cat="fotografia" data-showcase-id="foto-gi">
+          <div class="reel-card hub-photo-item" data-portfolio-cat="fotografia" data-portfolio-type="photo" data-showcase-cat="fotografia" data-showcase-id="foto-gi">
             <img src="/assets/drive_media/photos/foto_gi_.webp" alt="Ensaio Fotográfico Gi" loading="lazy" decoding="async" />
             <div class="reel-card-overlay">
               <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
@@ -474,7 +468,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-photo-item" data-portfolio-cat="fotografia" data-showcase-cat="fotografia" data-showcase-id="foto-andreia">
+          <div class="reel-card hub-photo-item" data-portfolio-cat="fotografia" data-portfolio-type="photo" data-showcase-cat="fotografia" data-showcase-id="foto-andreia">
             <img src="/assets/drive_media/photos/andre_ia_.webp" alt="Retrato Executivo Andréia" loading="lazy" decoding="async" />
             <div class="reel-card-overlay">
               <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
@@ -482,7 +476,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-photo-item" data-portfolio-cat="fotografia" data-showcase-cat="fotografia" data-showcase-id="foto-ana-prof">
+          <div class="reel-card hub-photo-item" data-portfolio-cat="fotografia" data-portfolio-type="photo" data-showcase-cat="fotografia" data-showcase-id="foto-ana-prof">
             <img src="/assets/drive_media/photos/foto-ana.webp" alt="Retrato Profissional Ana StoryLens" loading="lazy" decoding="async" />
             <div class="reel-card-overlay">
               <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
@@ -490,7 +484,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-photo-item" data-portfolio-cat="fotografia" data-showcase-cat="fotografia" data-showcase-id="foto-set-estudio">
+          <div class="reel-card hub-photo-item" data-portfolio-cat="fotografia" data-portfolio-type="photo" data-showcase-cat="fotografia" data-showcase-id="foto-set-estudio">
             <img src="/assets/drive_media/photos/set-estudio.webp" alt="Estrutura e Set de Estúdio StoryLens" loading="lazy" decoding="async" />
             <div class="reel-card-overlay">
               <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
@@ -498,7 +492,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-photo-item" data-portfolio-cat="fotografia" data-showcase-cat="fotografia" data-showcase-id="foto-cenario-greika">
+          <div class="reel-card hub-photo-item" data-portfolio-cat="fotografia" data-portfolio-type="photo" data-showcase-cat="fotografia" data-showcase-id="foto-cenario-greika">
             <img src="/assets/drive_media/photos/estudio-cenario-greika.webp" alt="Set de Estúdio e Iluminação Fotográfica" loading="lazy" decoding="async" />
             <div class="reel-card-overlay">
               <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
@@ -506,19 +500,8 @@
             </div>
           </div>
 
-          <div class="reel-card hub-video-card" data-portfolio-cat="fotografia" data-showcase-cat="fotografia" data-showcase-id="foto-sessao-vid">
-            <video src="/assets/drive_media/bts-video-12.mp4" poster="/assets/drive_media/bts-video-12.webp" preload="none" loop playsinline muted></video>
-            <div class="reel-card-overlay">
-              <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
-                <span class="audio-text">Ouvir com Áudio</span>
-              </button>
-              <button type="button" class="hub-expand-btn" aria-label="Abrir em tela cheia">Tela Cheia</button>
-              <span class="reel-card-tag">Sessão Fotográfica &amp; Pose</span>
-            </div>
-          </div>
-
           <!-- ── MARKETING DIGITAL & ROTEIRO GUIADO (8 materiais) ── -->
-          <div class="reel-card hub-video-card" data-portfolio-cat="roteiro" data-showcase-cat="roteiro" data-showcase-id="rot-vid-03">
+          <div class="reel-card hub-video-card" data-portfolio-cat="roteiro" data-portfolio-type="video" data-showcase-cat="roteiro" data-showcase-id="rot-vid-03">
             <video src="/assets/drive_media/main-video-03.mp4" poster="/assets/drive_media/main-video-03.webp" preload="none" loop playsinline muted></video>
             <div class="reel-card-overlay">
               <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
@@ -529,7 +512,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-video-card" data-portfolio-cat="roteiro" data-showcase-cat="roteiro" data-showcase-id="rot-vid-04">
+          <div class="reel-card hub-video-card" data-portfolio-cat="roteiro" data-portfolio-type="video" data-showcase-cat="roteiro" data-showcase-id="rot-vid-04">
             <video src="/assets/drive_media/main-video-04.mp4" poster="/assets/drive_media/main-video-04.webp" preload="none" loop playsinline muted></video>
             <div class="reel-card-overlay">
               <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
@@ -540,7 +523,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-video-card" data-portfolio-cat="roteiro" data-showcase-cat="roteiro" data-showcase-id="rot-vid-05">
+          <div class="reel-card hub-video-card" data-portfolio-cat="roteiro" data-portfolio-type="video" data-showcase-cat="roteiro" data-showcase-id="rot-vid-05">
             <video src="/assets/drive_media/main-video-05.mp4" poster="/assets/drive_media/main-video-05.webp?v=2" preload="none" loop playsinline muted></video>
             <div class="reel-card-overlay">
               <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
@@ -551,7 +534,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-video-card" data-portfolio-cat="roteiro" data-showcase-cat="roteiro" data-showcase-id="rot-vid-06">
+          <div class="reel-card hub-video-card" data-portfolio-cat="roteiro" data-portfolio-type="video" data-showcase-cat="roteiro" data-showcase-id="rot-vid-06">
             <video src="/assets/drive_media/main-video-06.mp4" poster="/assets/drive_media/main-video-06.webp" preload="none" loop playsinline muted></video>
             <div class="reel-card-overlay">
               <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
@@ -562,7 +545,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-video-card" data-portfolio-cat="roteiro" data-showcase-cat="roteiro" data-showcase-id="rot-vid-07">
+          <div class="reel-card hub-video-card" data-portfolio-cat="roteiro" data-portfolio-type="video" data-showcase-cat="roteiro" data-showcase-id="rot-vid-07">
             <video src="/assets/drive_media/main-video-07.mp4" poster="/assets/drive_media/main-video-07.webp" preload="none" loop playsinline muted></video>
             <div class="reel-card-overlay">
               <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
@@ -573,7 +556,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-video-card" data-portfolio-cat="roteiro" data-showcase-cat="roteiro" data-showcase-id="rot-vid-09">
+          <div class="reel-card hub-video-card" data-portfolio-cat="roteiro" data-portfolio-type="video" data-showcase-cat="roteiro" data-showcase-id="rot-vid-09">
             <video src="/assets/drive_media/main-video-09.mp4" poster="/assets/drive_media/main-video-09.webp" preload="none" loop playsinline muted></video>
             <div class="reel-card-overlay">
               <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
@@ -584,7 +567,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-photo-item" data-portfolio-cat="roteiro" data-showcase-cat="roteiro" data-showcase-id="rot-foto-ipad">
+          <div class="reel-card hub-photo-item" data-portfolio-cat="roteiro" data-portfolio-type="photo" data-showcase-cat="roteiro" data-showcase-id="rot-foto-ipad">
             <img src="/assets/drive_media/photos/roteiro-foto.webp" alt="Planejamento e Roteiro Guiado no iPad" loading="lazy" decoding="async" />
             <div class="reel-card-overlay">
               <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
@@ -592,7 +575,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-photo-item" data-portfolio-cat="roteiro" data-showcase-cat="roteiro" data-showcase-id="rot-foto-dupla">
+          <div class="reel-card hub-photo-item" data-portfolio-cat="roteiro" data-portfolio-type="photo" data-showcase-cat="roteiro" data-showcase-id="rot-foto-dupla">
             <img src="/assets/drive_media/photos/estudio-dupla-roteiro.webp" alt="Ensaio de Autoridade e Entrevista em Dupla" loading="lazy" decoding="async" />
             <div class="reel-card-overlay">
               <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
@@ -601,7 +584,7 @@
           </div>
 
           <!-- ── ENSAIO EXTERNO & LOCAÇÃO (7 materiais) ── -->
-          <div class="reel-card hub-video-card" data-portfolio-cat="externo" data-showcase-cat="externo" data-showcase-id="ext-loja-dot">
+          <div class="reel-card hub-video-card" data-portfolio-cat="externo" data-portfolio-type="video" data-showcase-cat="externo" data-showcase-id="ext-loja-dot">
             <video src="/assets/drive_media/ensaio-roteiro-01.mp4" poster="/assets/drive_media/ensaio-roteiro-01.webp" preload="none" loop playsinline muted></video>
             <div class="reel-card-overlay">
               <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
@@ -612,7 +595,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-video-card" data-portfolio-cat="externo" data-showcase-cat="externo" data-showcase-id="ext-ambiente-cli">
+          <div class="reel-card hub-video-card" data-portfolio-cat="externo" data-portfolio-type="video" data-showcase-cat="externo" data-showcase-id="ext-ambiente-cli">
             <video src="/assets/drive_media/ensaio-externo.mp4" poster="/assets/drive_media/ensaio-externo.webp" preload="none" loop playsinline muted></video>
             <div class="reel-card-overlay">
               <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
@@ -623,7 +606,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-video-card" data-portfolio-cat="externo" data-showcase-cat="externo" data-showcase-id="ext-bast-exec">
+          <div class="reel-card hub-video-card" data-portfolio-cat="externo" data-portfolio-type="video" data-showcase-cat="externo" data-showcase-id="ext-bast-exec">
             <video src="/assets/drive_media/ensaio-bastidores.mp4" poster="/assets/drive_media/ensaio-bastidores.webp" preload="none" loop playsinline muted></video>
             <div class="reel-card-overlay">
               <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
@@ -634,7 +617,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-video-card" data-portfolio-cat="externo" data-showcase-cat="externo" data-showcase-id="ext-makingof-loc">
+          <div class="reel-card hub-video-card" data-portfolio-cat="externo" data-portfolio-type="video" data-showcase-cat="externo" data-showcase-id="ext-makingof-loc">
             <video src="/assets/drive_media/ensaio-makingof.mp4" poster="/assets/drive_media/ensaio-makingof.webp" preload="none" loop playsinline muted></video>
             <div class="reel-card-overlay">
               <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
@@ -645,7 +628,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-video-card" data-portfolio-cat="externo" data-showcase-cat="externo" data-showcase-id="ext-metodologia">
+          <div class="reel-card hub-video-card" data-portfolio-cat="externo" data-portfolio-type="video" data-showcase-cat="externo" data-showcase-id="ext-metodologia">
             <video src="/assets/drive_media/methodology-video.mp4" poster="/assets/drive_media/methodology-poster.webp?v=3" preload="none" loop playsinline muted></video>
             <div class="reel-card-overlay">
               <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
@@ -656,7 +639,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-photo-item" data-portfolio-cat="externo" data-showcase-cat="externo" data-showcase-id="ext-direcao-cena">
+          <div class="reel-card hub-photo-item" data-portfolio-cat="externo" data-portfolio-type="photo" data-showcase-cat="externo" data-showcase-id="ext-direcao-cena">
             <img src="/assets/drive_media/photos/foto-ensaio-prod.webp" alt="Direção de Cena e Posicionamento em Locação" loading="lazy" decoding="async" />
             <div class="reel-card-overlay">
               <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
@@ -664,7 +647,7 @@
             </div>
           </div>
 
-          <div class="reel-card hub-video-card" data-portfolio-cat="externo" data-showcase-cat="externo" data-showcase-id="ext-extra-copy">
+          <div class="reel-card hub-video-card" data-portfolio-cat="externo" data-portfolio-type="video" data-showcase-cat="externo" data-showcase-id="ext-extra-copy">
             <video src="/assets/drive_media/extra-copy-roteiro.mp4" poster="/assets/drive_media/extra-copy-roteiro.webp" preload="none" loop playsinline muted></video>
             <div class="reel-card-overlay">
               <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
@@ -920,73 +903,10 @@
           </div>
         </div>
 
-        <!-- Galeria da Aba Ensaio & Roteiro Externo (Arquivos exclusivos da pasta aba_nova_ensaio_e_roteiro_externo) -->
-        <div class="section-media-showcase reveal" data-delay="150">
-          <div class="section-media-header">
-            <span style="color: #fff;">Produções de Ensaio &amp; Roteiro Externo (4 vídeos &amp; 2 fotos)</span>
-            <small style="color: rgba(255,255,255,0.65);">Clique em Ouvir com Áudio ou clique no card para abrir em Tela Cheia</small>
-          </div>
-          <div class="reel-grid reel-grid-3">
-            <div class="reel-card hub-video-card" data-showcase-cat="externo" data-showcase-id="ext-1">
-              <video src="/assets/drive_media/ensaio-roteiro-01.mp4" poster="/assets/drive_media/ensaio-roteiro-01.webp" preload="none" loop playsinline muted></video>
-              <div class="reel-card-overlay">
-                <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
-                  <span class="audio-text">Ouvir com Áudio</span>
-                </button>
-                <button type="button" class="hub-expand-btn" aria-label="Abrir em tela cheia">Tela Cheia</button>
-                <span class="reel-card-tag">Roteiro &amp; Ensaio em Loja (DOT)</span>
-              </div>
-            </div>
-
-            <div class="reel-card hub-video-card" data-showcase-cat="externo" data-showcase-id="ext-2">
-              <video src="/assets/drive_media/ensaio-externo.mp4" poster="/assets/drive_media/ensaio-externo.webp" preload="none" loop playsinline muted></video>
-              <div class="reel-card-overlay">
-                <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
-                  <span class="audio-text">Ouvir com Áudio</span>
-                </button>
-                <button type="button" class="hub-expand-btn" aria-label="Abrir em tela cheia">Tela Cheia</button>
-                <span class="reel-card-tag">Captação Externa em Ambiente da Cliente</span>
-              </div>
-            </div>
-
-            <div class="reel-card hub-video-card" data-showcase-cat="externo" data-showcase-id="ext-3">
-              <video src="/assets/drive_media/ensaio-bastidores.mp4" poster="/assets/drive_media/ensaio-bastidores.webp" preload="none" loop playsinline muted></video>
-              <div class="reel-card-overlay">
-                <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
-                  <span class="audio-text">Ouvir com Áudio</span>
-                </button>
-                <button type="button" class="hub-expand-btn" aria-label="Abrir em tela cheia">Tela Cheia</button>
-                <span class="reel-card-tag">Bastidores do Ensaio Executivo Externo</span>
-              </div>
-            </div>
-
-            <div class="reel-card hub-video-card" data-showcase-cat="externo" data-showcase-id="ext-4">
-              <video src="/assets/drive_media/ensaio-makingof.mp4" poster="/assets/drive_media/ensaio-makingof.webp" preload="none" loop playsinline muted></video>
-              <div class="reel-card-overlay">
-                <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
-                  <span class="audio-text">Ouvir com Áudio</span>
-                </button>
-                <button type="button" class="hub-expand-btn" aria-label="Abrir em tela cheia">Tela Cheia</button>
-                <span class="reel-card-tag">Produção &amp; Ensaio Externo</span>
-              </div>
-            </div>
-
-            <div class="reel-card hub-photo-item" data-showcase-cat="externo" data-showcase-id="ext-foto-1">
-              <img src="/assets/drive_media/photos/foto-ensaio-prod.webp" alt="Direção de Cena no Ensaio Externo" loading="lazy" decoding="async" />
-              <div class="reel-card-overlay">
-                <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
-                <span class="reel-card-tag">Direção de Cena &amp; Posicionamento</span>
-              </div>
-            </div>
-
-            <div class="reel-card hub-photo-item" data-showcase-cat="externo" data-showcase-id="ext-foto-2">
-              <img src="/assets/drive_media/photos/roteiro-foto.webp" alt="Direção de Roteiro no iPad" loading="lazy" decoding="async" />
-              <div class="reel-card-overlay">
-                <button type="button" class="hub-expand-btn" aria-label="Ampliar foto">Ampliar Foto</button>
-                <span class="reel-card-tag">Planejamento &amp; Roteiro Guiado</span>
-              </div>
-            </div>
-          </div>
+        <div class="methodology-portfolio-cta reveal" data-delay="200" style="margin-top: 48px; text-align: center;">
+          <a href="#portfolio" class="btn-accent" data-filter-target="externo">
+            Ver todas as produções de Ensaio Externo no Portfólio →
+          </a>
         </div>
       </div>
     </section>
@@ -1003,35 +923,13 @@
           </h2>
         </div>
 
-        <!-- 5 Vídeos de Bastidores & Cobertura de Eventos (Pasta bastidores) -->
+        <!-- 3 Vídeos Exclusivos de Bastidores StoryLens -->
         <div class="section-media-showcase bts-video-showcase reveal" data-delay="150" style="margin-bottom: 48px;">
           <div class="section-media-header">
-            <span style="color: var(--text-dark);">Vídeos de Bastidores &amp; Cobertura de Eventos (5 vídeos)</span>
+            <span style="color: var(--text-dark);">Vídeos de Bastidores StoryLens</span>
             <small>Clique em Ouvir com Áudio ou abra em Tela Cheia</small>
           </div>
-          <div class="reel-grid reel-grid-4">
-            <div class="reel-card hub-video-card" data-showcase-cat="bts" data-showcase-id="bts-vid-fast">
-              <video src="/assets/drive_media/bts-fast-escova.mp4" poster="/assets/drive_media/bts-fast-escova.webp?v=4" preload="none" loop playsinline muted></video>
-              <div class="reel-card-overlay">
-                <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
-                  <span class="audio-text">Ouvir com Áudio</span>
-                </button>
-                <button type="button" class="hub-expand-btn" aria-label="Abrir em tela cheia">Tela Cheia</button>
-                <span class="reel-card-tag">Inauguração Fast Escova</span>
-              </div>
-            </div>
-
-            <div class="reel-card hub-video-card" data-showcase-cat="bts" data-showcase-id="bts-vid-prod">
-              <video src="/assets/drive_media/bts-producao.mp4" poster="/assets/drive_media/bts-producao.webp" preload="none" loop playsinline muted></video>
-              <div class="reel-card-overlay">
-                <button type="button" class="hub-audio-btn" data-card-audio aria-label="Ouvir vídeo com áudio">
-                  <span class="audio-text">Ouvir com Áudio</span>
-                </button>
-                <button type="button" class="hub-expand-btn" aria-label="Abrir em tela cheia">Tela Cheia</button>
-                <span class="reel-card-tag">Convenção PanVel no Palco</span>
-              </div>
-            </div>
-
+          <div class="reel-grid reel-grid-3">
             <div class="reel-card hub-video-card" data-showcase-cat="bts" data-showcase-id="bts-vid-1">
               <video src="/assets/drive_media/bts-video-10.mp4" poster="/assets/drive_media/bts-video-10.webp" preload="none" loop playsinline muted></video>
               <div class="reel-card-overlay">
@@ -1061,45 +959,33 @@
                   <span class="audio-text">Ouvir com Áudio</span>
                 </button>
                 <button type="button" class="hub-expand-btn" aria-label="Abrir em tela cheia">Tela Cheia</button>
-                <span class="reel-card-tag">Captação de Beleza em Tempo Real</span>
+                <span class="reel-card-tag">Captação &amp; Set em Tempo Real</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Carrossel de Fotos de Bastidores & Eventos (Pasta bastidores) -->
+        <!-- Carrossel de Fotos de Bastidores & Estrutura (Sem duplicação de clientes) -->
         <div class="carousel-outer">
           <div class="carousel-track-wrap">
             <div class="carousel-track">
               <div class="carousel-slide" data-showcase-cat="bts" data-showcase-id="bts-foto-1">
-                <img src="/assets/drive_media/photos/img_3071.webp" alt="Cobertura Palco Corporativo Abrafarma Future Trends" width="700" height="933" loading="lazy" decoding="async" />
+                <img src="/assets/drive_media/photos/foto_prod_bastidor.webp" alt="Equipe StoryLens e Bastidores de Produção" width="700" height="933" loading="lazy" decoding="async" />
               </div>
               <div class="carousel-slide" data-showcase-cat="bts" data-showcase-id="bts-foto-2">
-                <img src="/assets/drive_media/photos/evento_5_.webp" alt="Ana StoryLens em Cobertura Cultural" width="700" height="933" loading="lazy" decoding="async" />
-              </div>
-              <div class="carousel-slide" data-showcase-cat="bts" data-showcase-id="bts-foto-3">
-                <img src="/assets/drive_media/photos/evento_3_.webp" alt="Bienal Internacional do Livro SP (Literare Books)" width="700" height="933" loading="lazy" decoding="async" />
-              </div>
-              <div class="carousel-slide" data-showcase-cat="bts" data-showcase-id="bts-foto-4">
-                <img src="/assets/drive_media/photos/evento-11.webp" alt="Cobertura de Palestra Mulheres na Íntegra" width="700" height="933" loading="lazy" decoding="async" />
-              </div>
-              <div class="carousel-slide" data-showcase-cat="bts" data-showcase-id="bts-foto-5">
-                <img src="/assets/drive_media/photos/evento-6.webp" alt="Bienal do Livro SP Espaço Autógrafos" width="700" height="933" loading="lazy" decoding="async" />
-              </div>
-              <div class="carousel-slide" data-showcase-cat="bts" data-showcase-id="bts-foto-6">
                 <img src="/assets/drive_media/photos/set-estudio.webp" alt="Estrutura e Set de Estúdio StoryLens" width="700" height="933" loading="lazy" decoding="async" />
               </div>
-              <div class="carousel-slide" data-showcase-cat="bts" data-showcase-id="bts-foto-7">
-                <img src="/assets/drive_media/photos/foto_andressa_.webp" alt="Retrato Corporativo Dra. Andressa Sthanke" width="700" height="933" loading="lazy" decoding="async" />
+              <div class="carousel-slide" data-showcase-cat="bts" data-showcase-id="bts-foto-3">
+                <img src="/assets/drive_media/photos/evento_5_.webp" alt="Ana StoryLens em Cobertura Cultural" width="700" height="933" loading="lazy" decoding="async" />
               </div>
-              <div class="carousel-slide" data-showcase-cat="bts" data-showcase-id="bts-foto-8">
-                <img src="/assets/drive_media/photos/foto_gi_.webp" alt="Ensaio Fotográfico Gi" width="700" height="933" loading="lazy" decoding="async" />
+              <div class="carousel-slide" data-showcase-cat="bts" data-showcase-id="bts-foto-4">
+                <img src="/assets/drive_media/photos/evento-6.webp" alt="Bastidores de Evento em São Paulo" width="700" height="933" loading="lazy" decoding="async" />
               </div>
-              <div class="carousel-slide" data-showcase-cat="bts" data-showcase-id="bts-foto-9">
-                <img src="/assets/drive_media/photos/andre_ia_.webp" alt="Retrato Executivo Andréia" width="700" height="933" loading="lazy" decoding="async" />
+              <div class="carousel-slide" data-showcase-cat="bts" data-showcase-id="bts-foto-5">
+                <img src="/assets/drive_media/photos/estudio-cenario-greika.webp" alt="Equipamentos e Iluminação de Estúdio" width="700" height="933" loading="lazy" decoding="async" />
               </div>
-              <div class="carousel-slide" data-showcase-cat="bts" data-showcase-id="bts-foto-10">
-                <img src="/assets/drive_media/photos/foto-ana.webp" alt="Retrato Profissional Ana StoryLens" width="700" height="933" loading="lazy" decoding="async" />
+              <div class="carousel-slide" data-showcase-cat="bts" data-showcase-id="bts-foto-6">
+                <img src="/assets/drive_media/photos/foto-ana.webp" alt="Ana Paula StoryLens nos Bastidores de Direção" width="700" height="933" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
@@ -1107,10 +993,6 @@
           <div class="carousel-controls">
             <div class="carousel-dots">
               <div class="carousel-dot active"></div>
-              <div class="carousel-dot"></div>
-              <div class="carousel-dot"></div>
-              <div class="carousel-dot"></div>
-              <div class="carousel-dot"></div>
               <div class="carousel-dot"></div>
               <div class="carousel-dot"></div>
               <div class="carousel-dot"></div>
@@ -1562,9 +1444,9 @@
         </div>
 
         <div class="showcase-tabs" id="showcase-tabs">
-          <button type="button" class="showcase-tab active" data-cat="all">Todas (30)</button>
-          <button type="button" class="showcase-tab" data-cat="eventos">Eventos (8)</button>
-          <button type="button" class="showcase-tab" data-cat="fotografia">Fotografia (7)</button>
+          <button type="button" class="showcase-tab active" data-cat="all">Todas (27)</button>
+          <button type="button" class="showcase-tab" data-cat="eventos">Eventos (6)</button>
+          <button type="button" class="showcase-tab" data-cat="fotografia">Fotografia (6)</button>
           <button type="button" class="showcase-tab" data-cat="roteiro">Roteiro Guiado (8)</button>
           <button type="button" class="showcase-tab" data-cat="externo">Ensaio Externo (7)</button>
         </div>

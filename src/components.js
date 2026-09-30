@@ -282,26 +282,23 @@ function initVideoModal() {
 
   // Curated Catalog across the 4 Services (Zero Repetition, 100% of Sent Assets)
   const DRIVE_CATALOG = [
-    // ── 1. EVENTOS (8 materiais de Eventos e Coberturas) ──
+    // ── 1. EVENTOS (6 materiais de Eventos e Coberturas, sem repetição de clientes) ──
     { id: 'ev-fast-vid', type: 'video', cats: ['eventos'], title: 'Inauguração Fast Escova', src: '/assets/drive_media/bts-fast-escova.mp4', thumb: '/assets/drive_media/bts-fast-escova.webp?v=4' },
-    { id: 'ev-fast-foto', type: 'photo', cats: ['eventos'], title: 'Cobertura Fast Escova', src: '/assets/drive_media/photos/foto-fast.webp', thumb: '/assets/drive_media/photos/foto-fast.webp' },
     { id: 'ev-panvel', type: 'video', cats: ['eventos'], title: 'Convenção PanVel no Palco', src: '/assets/drive_media/bts-producao.mp4', thumb: '/assets/drive_media/bts-producao.webp' },
     { id: 'ev-abrafarma', type: 'photo', cats: ['eventos'], title: 'Palco Abrafarma Future Trends', src: '/assets/drive_media/photos/img_3071.webp', thumb: '/assets/drive_media/photos/img_3071.webp' },
     { id: 'ev-bienal-3', type: 'photo', cats: ['eventos'], title: 'Bienal Internacional do Livro SP', src: '/assets/drive_media/photos/evento_3_.webp', thumb: '/assets/drive_media/photos/evento_3_.webp' },
     { id: 'ev-ana-evento', type: 'photo', cats: ['eventos'], title: 'Ana StoryLens em Cobertura Cultural', src: '/assets/drive_media/photos/evento_5_.webp', thumb: '/assets/drive_media/photos/evento_5_.webp' },
     { id: 'ev-mulheres', type: 'photo', cats: ['eventos'], title: 'Palestra Mulheres na Íntegra', src: '/assets/drive_media/photos/evento-11.webp', thumb: '/assets/drive_media/photos/evento-11.webp' },
-    { id: 'ev-bienal-6', type: 'photo', cats: ['eventos'], title: 'Bienal do Livro SP Espaço Autógrafos', src: '/assets/drive_media/photos/evento-6.webp', thumb: '/assets/drive_media/photos/evento-6.webp' },
 
-    // ── 2. FOTOGRAFIA PROFISSIONAL CORPORATIVA (7 materiais exclusivos) ──
+    // ── 2. FOTOGRAFIA PROFISSIONAL CORPORATIVA (6 retratos corporativos, 100% fotografia) ──
     { id: 'foto-andressa', type: 'photo', cats: ['fotografia'], title: 'Retrato Corporativo — Dra. Andressa', src: '/assets/drive_media/photos/foto_andressa_.webp', thumb: '/assets/drive_media/photos/foto_andressa_.webp' },
     { id: 'foto-gi', type: 'photo', cats: ['fotografia'], title: 'Ensaio Fotográfico — Gi', src: '/assets/drive_media/photos/foto_gi_.webp', thumb: '/assets/drive_media/photos/foto_gi_.webp' },
     { id: 'foto-andreia', type: 'photo', cats: ['fotografia'], title: 'Retrato Executivo — Andréia', src: '/assets/drive_media/photos/andre_ia_.webp', thumb: '/assets/drive_media/photos/andre_ia_.webp' },
     { id: 'foto-ana-prof', type: 'photo', cats: ['fotografia'], title: 'Retrato Profissional — Ana StoryLens', src: '/assets/drive_media/photos/foto-ana.webp', thumb: '/assets/drive_media/photos/foto-ana.webp' },
     { id: 'foto-set-estudio', type: 'photo', cats: ['fotografia'], title: 'Estrutura & Set de Estúdio', src: '/assets/drive_media/photos/set-estudio.webp', thumb: '/assets/drive_media/photos/set-estudio.webp' },
     { id: 'foto-cenario-greika', type: 'photo', cats: ['fotografia'], title: 'Set de Estúdio & Iluminação', src: '/assets/drive_media/photos/estudio-cenario-greika.webp', thumb: '/assets/drive_media/photos/estudio-cenario-greika.webp' },
-    { id: 'foto-sessao-vid', type: 'video', cats: ['fotografia'], title: 'Sessão Fotográfica & Pose', src: '/assets/drive_media/bts-video-12.mp4', thumb: '/assets/drive_media/bts-video-12.webp' },
 
-    // ── 3. MARKETING DIGITAL & ROTEIRO GUIADO (8 materiais de Roteiro e Posicionamento) ──
+    // ── 3. MARKETING DIGITAL & ROTEIRO GUIADO (8 produções de Roteiro e Posicionamento) ──
     { id: 'rot-vid-03', type: 'video', cats: ['roteiro'], title: 'Posicionamento Digital em Dupla', src: '/assets/drive_media/main-video-03.mp4', thumb: '/assets/drive_media/main-video-03.webp' },
     { id: 'rot-vid-04', type: 'video', cats: ['roteiro'], title: 'Direção de Roteiro & Autoridade', src: '/assets/drive_media/main-video-04.mp4', thumb: '/assets/drive_media/main-video-04.webp' },
     { id: 'rot-vid-05', type: 'video', cats: ['roteiro'], title: 'Gravação Guiada com Teleprompter', src: '/assets/drive_media/main-video-05.mp4', thumb: '/assets/drive_media/main-video-05.webp?v=2' },
@@ -311,14 +308,19 @@ function initVideoModal() {
     { id: 'rot-foto-ipad', type: 'photo', cats: ['roteiro'], title: 'Planejamento & Roteiro no iPad', src: '/assets/drive_media/photos/roteiro-foto.webp', thumb: '/assets/drive_media/photos/roteiro-foto.webp' },
     { id: 'rot-foto-dupla', type: 'photo', cats: ['roteiro'], title: 'Ensaio de Dupla & Autoridade', src: '/assets/drive_media/photos/estudio-dupla-roteiro.webp', thumb: '/assets/drive_media/photos/estudio-dupla-roteiro.webp' },
 
-    // ── 4. ENSAIO EXTERNO & LOCAÇÃO (7 materiais de Produções Externas) ──
+    // ── 4. ENSAIO EXTERNO & LOCAÇÃO (7 produções em ambiente externo e da cliente) ──
     { id: 'ext-loja-dot', type: 'video', cats: ['externo'], title: 'Roteiro & Ensaio em Loja (DOT)', src: '/assets/drive_media/ensaio-roteiro-01.mp4', thumb: '/assets/drive_media/ensaio-roteiro-01.webp' },
     { id: 'ext-ambiente-cli', type: 'video', cats: ['externo'], title: 'Captação em Ambiente da Cliente', src: '/assets/drive_media/ensaio-externo.mp4', thumb: '/assets/drive_media/ensaio-externo.webp' },
     { id: 'ext-bast-exec', type: 'video', cats: ['externo'], title: 'Bastidores do Ensaio Executivo', src: '/assets/drive_media/ensaio-bastidores.mp4', thumb: '/assets/drive_media/ensaio-bastidores.webp' },
     { id: 'ext-makingof-loc', type: 'video', cats: ['externo'], title: 'Produção & Ensaio Externo', src: '/assets/drive_media/ensaio-makingof.mp4', thumb: '/assets/drive_media/ensaio-makingof.webp' },
     { id: 'ext-metodologia', type: 'video', cats: ['externo'], title: 'Metodologia de Roteiro Guiado', src: '/assets/drive_media/methodology-video.mp4', thumb: '/assets/drive_media/methodology-poster.webp?v=3' },
     { id: 'ext-direcao-cena', type: 'photo', cats: ['externo'], title: 'Direção de Cena em Locação', src: '/assets/drive_media/photos/foto-ensaio-prod.webp', thumb: '/assets/drive_media/photos/foto-ensaio-prod.webp' },
-    { id: 'ext-extra-copy', type: 'video', cats: ['externo'], title: 'Ensaio Guiado em Locação', src: '/assets/drive_media/extra-copy-roteiro.mp4', thumb: '/assets/drive_media/extra-copy-roteiro.webp' }
+    { id: 'ext-extra-copy', type: 'video', cats: ['externo'], title: 'Ensaio Guiado em Locação', src: '/assets/drive_media/extra-copy-roteiro.mp4', thumb: '/assets/drive_media/extra-copy-roteiro.webp' },
+
+    // ── 5. BASTIDORES & EQUIPE ──
+    { id: 'bts-vid-1', type: 'video', cats: ['bts'], title: 'Direção & Monitoramento em Estúdio', src: '/assets/drive_media/bts-video-10.mp4', thumb: '/assets/drive_media/bts-video-10.webp' },
+    { id: 'bts-vid-2', type: 'video', cats: ['bts'], title: 'Condução de Cena & Imagem', src: '/assets/drive_media/bts-video-11.mp4', thumb: '/assets/drive_media/bts-video-11.webp' },
+    { id: 'bts-vid-3', type: 'video', cats: ['bts'], title: 'Set e Captação em Tempo Real', src: '/assets/drive_media/bts-video-12.mp4', thumb: '/assets/drive_media/bts-video-12.webp' }
   ];
 
   // Helper to mute all inline videos on the page except a specific one
@@ -394,23 +396,43 @@ function initVideoModal() {
     });
   });
 
-  // Filter pills in #portfolio
+  // Dual filtering in #portfolio (Category + Format Type)
   const portfolioFilterBar = document.getElementById('portfolio-filter-bar');
+  const portfolioTypeBar = document.getElementById('portfolio-type-bar');
   const portfolioGrid = document.getElementById('portfolio-main-grid');
+
+  let currentPortfolioCat = 'all';
+  let currentPortfolioType = 'all';
+
+  function filterPortfolioGrid() {
+    if (!portfolioGrid) return;
+    portfolioGrid.querySelectorAll('.reel-card').forEach(card => {
+      const cardCat = card.dataset.portfolioCat;
+      const cardType = card.dataset.portfolioType;
+      const matchCat = (currentPortfolioCat === 'all' || currentPortfolioCat === cardCat);
+      const matchType = (currentPortfolioType === 'all' || currentPortfolioType === cardType);
+      card.style.display = (matchCat && matchType) ? '' : 'none';
+    });
+  }
+
   if (portfolioFilterBar && portfolioGrid) {
     portfolioFilterBar.querySelectorAll('.portfolio-filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         portfolioFilterBar.querySelectorAll('.portfolio-filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        const filter = btn.dataset.filter || 'all';
-        portfolioGrid.querySelectorAll('.reel-card').forEach(card => {
-          const cat = card.dataset.portfolioCat;
-          if (filter === 'all' || filter === cat) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
-        });
+        currentPortfolioCat = btn.dataset.filter || 'all';
+        filterPortfolioGrid();
+      });
+    });
+  }
+
+  if (portfolioTypeBar && portfolioGrid) {
+    portfolioTypeBar.querySelectorAll('.portfolio-type-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        portfolioTypeBar.querySelectorAll('.portfolio-type-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentPortfolioType = btn.dataset.type || 'all';
+        filterPortfolioGrid();
       });
     });
   }
@@ -603,6 +625,20 @@ function initVideoModal() {
       const img = slide.querySelector('img');
       const rawSrc = img?.getAttribute('src') || img?.currentSrc || '';
       openShowcase({ category: 'all', matchId: matchId, matchSrc: rawSrc });
+    });
+  });
+
+  // 4. CTA buttons targeting a specific portfolio filter ([data-filter-target])
+  document.querySelectorAll('[data-filter-target]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetCat = btn.dataset.filterTarget;
+      const filterBtn = portfolioFilterBar?.querySelector(`.portfolio-filter-btn[data-filter="${targetCat}"]`);
+      if (filterBtn) filterBtn.click();
+      const allTypeBtn = portfolioTypeBar?.querySelector(`.portfolio-type-btn[data-type="all"]`);
+      if (allTypeBtn) allTypeBtn.click();
+      const el = document.getElementById('portfolio');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
