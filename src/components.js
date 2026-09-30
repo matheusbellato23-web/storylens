@@ -290,10 +290,10 @@ function initVideoModal() {
     { id: 'video-action', type: 'video', cats: ['portfolio'], title: 'StoryLens em Ação: Produção de Conteúdo', src: '/assets/drive_media/main-storylens-02.mp4', thumb: '/assets/drive_media/main-storylens-02.webp?v=4' },
     { id: 'main-foto-01', type: 'photo', cats: ['portfolio'], title: 'Set de Iluminação e Câmera StoryLens', src: '/assets/drive_media/photos/foto-main-1.webp', thumb: '/assets/drive_media/photos/foto-main-1.webp' },
     { id: 'main-foto-02', type: 'photo', cats: ['portfolio'], title: 'Teleprompter e Estúdio Móvel StoryLens', src: '/assets/drive_media/photos/foto-main-2.webp', thumb: '/assets/drive_media/photos/foto-main-2.webp' },
-    { id: 'main-foto-03', type: 'photo', cats: ['portfolio'], title: 'Ensaio de Autoridade e Entrevista em Dupla', src: '/assets/images/estudio-dupla-roteiro.webp', thumb: '/assets/images/estudio-dupla-roteiro.webp' },
+    { id: 'main-foto-03', type: 'photo', cats: ['portfolio'], title: 'Ensaio de Autoridade e Entrevista em Dupla', src: '/assets/drive_media/photos/estudio-dupla-roteiro.webp', thumb: '/assets/drive_media/photos/estudio-dupla-roteiro.webp' },
 
     // 2. ENSAIO & ROTEIRO EXTERNO (7 materiais exclusivos da pasta aba nova - ensaio e roteiro externo)
-    { id: 'video-methodology', type: 'video', cats: ['externo'], title: 'Metodologia de Roteiro Guiado', src: '/assets/images/methodology-video.mp4', thumb: '/assets/drive_media/methodology-poster.webp?v=3' },
+    { id: 'video-methodology', type: 'video', cats: ['externo'], title: 'Metodologia de Roteiro Guiado', src: '/assets/drive_media/methodology-video.mp4', thumb: '/assets/drive_media/methodology-poster.webp?v=3' },
     { id: 'ext-1', type: 'video', cats: ['externo'], title: 'Roteiro e Ensaio em Loja (DOT)', src: '/assets/drive_media/ensaio-roteiro-01.mp4', thumb: '/assets/drive_media/ensaio-roteiro-01.webp' },
     { id: 'ext-2', type: 'video', cats: ['externo'], title: 'Captação Externa no Ambiente da Cliente', src: '/assets/drive_media/ensaio-externo.mp4', thumb: '/assets/drive_media/ensaio-externo.webp' },
     { id: 'ext-3', type: 'video', cats: ['externo'], title: 'Bastidores do Ensaio Executivo Externo', src: '/assets/drive_media/ensaio-bastidores.mp4', thumb: '/assets/drive_media/ensaio-bastidores.webp' },
