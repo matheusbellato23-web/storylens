@@ -317,10 +317,16 @@ function initVideoModal() {
     { id: 'ext-direcao-cena', type: 'photo', cats: ['externo'], title: 'Direção de Cena em Locação', src: '/assets/drive_media/photos/foto-ensaio-prod.webp', thumb: '/assets/drive_media/photos/foto-ensaio-prod.webp' },
     { id: 'ext-extra-copy', type: 'video', cats: ['externo'], title: 'Ensaio Guiado em Locação', src: '/assets/drive_media/extra-copy-roteiro.mp4', thumb: '/assets/drive_media/extra-copy-roteiro.webp' },
 
-    // ── 5. BASTIDORES & EQUIPE ──
+    // ── 5. BASTIDORES & EQUIPE (fotos 100% exclusivas — sem repetição com portfólio) ──
     { id: 'bts-vid-1', type: 'video', cats: ['bts'], title: 'Direção & Monitoramento em Estúdio', src: '/assets/drive_media/bts-video-10.mp4', thumb: '/assets/drive_media/bts-video-10.webp' },
     { id: 'bts-vid-2', type: 'video', cats: ['bts'], title: 'Condução de Cena & Imagem', src: '/assets/drive_media/bts-video-11.mp4', thumb: '/assets/drive_media/bts-video-11.webp' },
-    { id: 'bts-vid-3', type: 'video', cats: ['bts'], title: 'Set e Captação em Tempo Real', src: '/assets/drive_media/bts-video-12.mp4', thumb: '/assets/drive_media/bts-video-12.webp' }
+    { id: 'bts-vid-3', type: 'video', cats: ['bts'], title: 'Set e Captação em Tempo Real', src: '/assets/drive_media/bts-video-12.mp4', thumb: '/assets/drive_media/bts-video-12.webp' },
+    { id: 'bts-foto-1', type: 'photo', cats: ['bts'], title: 'Equipe StoryLens — Bastidores de Produção', src: '/assets/drive_media/photos/foto_prod_bastidor.webp', thumb: '/assets/drive_media/photos/foto_prod_bastidor.webp' },
+    { id: 'bts-foto-2', type: 'photo', cats: ['bts'], title: 'Ana Paula StoryLens — Bastidores de Direção', src: '/assets/drive_media/photos/ana-drive-portrait.webp', thumb: '/assets/drive_media/photos/ana-drive-portrait.webp' },
+    { id: 'bts-foto-3', type: 'photo', cats: ['bts'], title: 'Bastidores de Evento em São Paulo', src: '/assets/drive_media/photos/evento-6.webp', thumb: '/assets/drive_media/photos/evento-6.webp' },
+    { id: 'bts-foto-4', type: 'photo', cats: ['bts'], title: 'Retrato Executivo — Bastidores de Set', src: '/assets/drive_media/photos/retrato-executivo-ana-cliente.webp', thumb: '/assets/drive_media/photos/retrato-executivo-ana-cliente.webp' },
+    { id: 'bts-foto-5', type: 'photo', cats: ['bts'], title: 'Produção StoryLens — Equipe nos Bastidores', src: '/assets/drive_media/photos/foto-main-1.webp', thumb: '/assets/drive_media/photos/foto-main-1.webp' },
+    { id: 'bts-foto-6', type: 'photo', cats: ['bts'], title: 'StoryLens — Bastidores da Gravação', src: '/assets/drive_media/photos/foto-main-2.webp', thumb: '/assets/drive_media/photos/foto-main-2.webp' }
   ];
 
   // Helper to mute all inline videos on the page except a specific one
